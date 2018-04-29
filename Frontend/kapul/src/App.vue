@@ -1,14 +1,28 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <Navbar :connected="true"></Navbar>
+
     <router-view/>
+
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+
+  import Navbar from './components/Navbar.vue';
+  import Footer from './components/Footer.vue';
+
+  export default
+  {
+    name: 'App',
+    components:
+    {
+      Navbar,
+      Footer
+    }
+  }
+
 </script>
 
 <style>
