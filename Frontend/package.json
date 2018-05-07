@@ -1,8 +1,8 @@
 {
-  "name": "kapul",
+  "name": "untitled",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "Nicolas Garnier",
+  "author": "Nicolas Garnier <nicolas.garnier@nikositech.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -10,9 +10,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "element-ui": "^2.3.7",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-session": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

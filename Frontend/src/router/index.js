@@ -2,12 +2,15 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Trips from '@/components/Trips'
-import Users from '@/components/Users'
+import User from '@/components/User'
+import Login from '@/components/Login'
+import Register from '@/components/Register'
 
 Vue.use(Router);
 
 export default new Router(
 {
+  mode: 'history',
   routes:
   [
     {
@@ -17,14 +20,24 @@ export default new Router(
       component: Home
     },
     {
+      path: "/login",
+      name: "Login",
+      component: Login
+    },
+    {
+      path: "/register",
+      name: "Register",
+      component: Register
+    },
+    {
       path: '/trips',
       name: 'Trips',
       component: Trips
     },
     {
-      path: '/users',
-      name: "Users",
-      component: Users
+      path: '/users/:id',
+      name: "User",
+      component: User
     }
   ]
 })
