@@ -2764,7 +2764,7 @@
           "lib/netstandard1.5/RabbitMQ.Client.dll": {}
         }
       },
-      "RawRabbit/2.0.0-beta9": {
+      "RawRabbit/2.0.0-beta8": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -2776,6 +2776,19 @@
         },
         "runtime": {
           "lib/netstandard1.5/RawRabbit.dll": {}
+        }
+      },
+      "RawRabbit.Operations.Subscribe/2.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "RawRabbit": "2.0.0-beta8"
+        },
+        "compile": {
+          "lib/netstandard1.5/RawRabbit.Operations.Subscribe.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/RawRabbit.Operations.Subscribe.dll": {}
         }
       },
       "Remotion.Linq/2.1.1": {
@@ -4796,7 +4809,8 @@
         "dependencies": {
           "Microsoft.AspNetCore": "2.0.3",
           "Microsoft.AspNetCore.Hosting": "2.0.3",
-          "RawRabbit": "2.0.0-beta9"
+          "RawRabbit": "2.0.0-beta8",
+          "RawRabbit.Operations.Subscribe": "2.0.0-beta8"
         },
         "compile": {
           "bin/placeholder/Kapul.Common.dll": {}
@@ -7669,15 +7683,26 @@
         "rabbitmq.client.nuspec"
       ]
     },
-    "RawRabbit/2.0.0-beta9": {
-      "sha512": "iCTgn+f0KlrgqJplrqF18BoVLxd6X/la4muoY6yrp9XV/jLCLeDvjEcxRgohFNCTpFyd4sWq93RhAD61LHfh1w==",
+    "RawRabbit/2.0.0-beta8": {
+      "sha512": "gAXa06ZSBbNW4ykL4reUgNWIVoWoOeRW233smeluY0t/mtuBTbN6/Hh7YyvxdrNvNADhn+QvM2/GvY994tor5A==",
       "type": "package",
-      "path": "rawrabbit/2.0.0-beta9",
+      "path": "rawrabbit/2.0.0-beta8",
       "files": [
         "lib/net451/RawRabbit.dll",
         "lib/netstandard1.5/RawRabbit.dll",
-        "rawrabbit.2.0.0-beta9.nupkg.sha512",
+        "rawrabbit.2.0.0-beta8.nupkg.sha512",
         "rawrabbit.nuspec"
+      ]
+    },
+    "RawRabbit.Operations.Subscribe/2.0.0-beta8": {
+      "sha512": "S7LJAH1fOOupMUwVH1n7jDHbpbbw3obLaRU6wFDzBtLuQ6CZOP/VcECDjnQmOlMYY4CY1WkNOF1+5OJBt+3UDA==",
+      "type": "package",
+      "path": "rawrabbit.operations.subscribe/2.0.0-beta8",
+      "files": [
+        "lib/net451/RawRabbit.Operations.Subscribe.dll",
+        "lib/netstandard1.5/RawRabbit.Operations.Subscribe.dll",
+        "rawrabbit.operations.subscribe.2.0.0-beta8.nupkg.sha512",
+        "rawrabbit.operations.subscribe.nuspec"
       ]
     },
     "Remotion.Linq/2.1.1": {
