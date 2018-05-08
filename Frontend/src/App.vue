@@ -43,8 +43,7 @@
   footer
   {
     position: absolute;
-    /*display: table-row;*/
-    height: 80px;
+    height: 100px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -59,5 +58,19 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+  }
+
+  .bg-LightGrey
+  {
+    background-color:rgb(240, 240, 240);
+  }
+
+  .bg-blue
+  {
+    background-color: #073863;
+  }
+  .white
+  {
+    color: white;
   }
 </style>

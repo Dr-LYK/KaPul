@@ -1,19 +1,19 @@
 <template>
-  <footer style="background-color:rgb(240, 240, 240);">
+  <footer class="bg-LightGrey">
     <div style="height: 50px;">
       <el-row type="flex" justify="space-between">
         <el-col :span="10">
           <el-row type="flex" justify="start" >
-            <el-col :span="6"><div class="grid-content">FB</div></el-col>
-            <el-col :span="6"><div class="grid-content">TW</div></el-col>
-            <el-col :span="6"><div class="grid-content">IN</div></el-col>
+            <el-col :span="6"><div class="grid-content"><i class="fab fa-facebook-f"></i></div></el-col>
+            <el-col :span="6"><div class="grid-content"><i class="fab fa-twitter"></i></div></el-col>
+            <el-col :span="6"><div class="grid-content"><i class="fab fa-linkedin-in"></i></div></el-col>
           </el-row>
         </el-col>
 
-        <el-col :span="10">
+        <el-col :span="14">
           <el-row type="flex" justify="end">
-            <el-col :span="6"><a href="#">Nous contacter</a></el-col>
             <el-col :span="6"><a href="#">A propos de KaPul</a></el-col>
+            <el-col :span="6"><a href="#">Nous contacter</a></el-col>
           </el-row>
         </el-col>
       </el-row>
@@ -35,5 +35,10 @@
 </script>
 
 <style scoped>
+
+  footer i
+  {
+    font-size: x-large;
+  }
 
 </style>

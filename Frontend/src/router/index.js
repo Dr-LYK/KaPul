@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Trips from '@/components/Trips'
+import Trip from '@/components/Trip'
 import User from '@/components/User'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
@@ -33,6 +34,11 @@ export default new Router(
       path: '/trips',
       name: 'Trips',
       component: Trips
+    },
+    {
+      path: "/trips/:id",
+      name: "Trip",
+      component: Trip
     },
     {
       path: '/users/:id',

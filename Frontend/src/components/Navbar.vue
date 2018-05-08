@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div style="margin-bottom: 30px;">
     <el-menu default-active="/home" :router="true" class="el-menu" mode="horizontal">
 
-      <el-menu-item index="/home" style="border: none;">
+      <el-menu-item index="/home" style="border: none;max-height: 190px;">
         <img src="../assets/img/logo.png">
       </el-menu-item>
 
