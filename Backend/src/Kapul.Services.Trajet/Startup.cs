@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Kapul.Common.Commands;
+using Kapul.Common.RabbitMq;
+using Kapul.Services.Trajet.Handler;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +27,8 @@ namespace Kapul.Services.Trajet
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddRabbitMq(Configuration);
+            services.AddScoped<ICommandHandler<CreateTrajet>, CreateTrajetHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
