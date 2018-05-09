@@ -7,7 +7,7 @@
           <i class="fab fa-font-awesome-flag"></i>
         </el-col>
         <el-col :span="16">
-          <el-input v-model="form.from" placeholder="Départ"></el-input>
+          <el-input v-model="form.departure_city" placeholder="Départ"></el-input>
         </el-col>
       </el-form-item>
       <el-form-item label="">
@@ -15,7 +15,7 @@
           <i class="fab fa-font-awesome-flag"></i>
         </el-col>
         <el-col :span="16">
-          <el-input v-model="form.to" placeholder="Destination"></el-input>
+          <el-input v-model="form.arriving_city" placeholder="Destination"></el-input>
         </el-col>
       </el-form-item>
       <el-form-item >
@@ -23,7 +23,7 @@
           <i class="far fa-calendar-alt"></i>
         </el-col>
         <el-col :span="16">
-          <el-date-picker prefix-icon="" type="datetime" placeholder="Date" v-model="form.date" style="width: 100%;"></el-date-picker>
+          <el-date-picker prefix-icon="" type="datetime" placeholder="Date" v-model="form.departure_time" style="width: 100%;"></el-date-picker>
         </el-col>
       </el-form-item>
       <el-form-item>

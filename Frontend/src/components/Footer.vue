@@ -1,7 +1,7 @@
 <template>
-  <footer class="bg-LightGrey">
+  <footer class="bg-LightGrey fixed-bottom">
     <div style="height: 50px;">
-      <el-row type="flex" justify="space-between">
+      <el-row type="flex" justify="space-between" class="mt-3">
         <el-col :span="10">
           <el-row type="flex" justify="start" >
             <el-col :span="6"><div class="grid-content"><i class="fab fa-facebook-f"></i></div></el-col>
@@ -20,8 +20,8 @@
     </div>
     <div style="height: 50px;">
       <el-row type="flex" justify="space-between">
-        <el-col :span="9"><a href="#" style="float:left;">Conditions générales & Politique de confidentialité</a></el-col>
-        <el-col :span="3"><span style="float: right;">© 2018 KaPul</span></el-col>
+        <el-col :span="9"><a href="#" style="float:left;" class="ml-4">Conditions générales & Politique de confidentialité</a></el-col>
+        <el-col :span="3"><span style="float: right;" class="mr-5">© 2018 KaPul</span></el-col>
       </el-row>
     </div>
   </footer>

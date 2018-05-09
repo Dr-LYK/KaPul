@@ -2,7 +2,7 @@
   <div id="app">
     <Navbar></Navbar>
 
-    <router-view/>
+    <router-view style="padding-top: 100px;"/>
 
     <Footer></Footer>
   </div>
@@ -39,7 +39,7 @@
     min-height: 100%;
     width: 100%;
   }
-
+/*
   footer
   {
     position: absolute;
@@ -50,7 +50,7 @@
     padding: 1rem;
     overflow-y: hidden;
   }
-
+*/
   #app
   {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -73,4 +73,6 @@
   {
     color: white;
   }
+
+
 </style>
