@@ -211,15 +211,15 @@
           comments:
           [
             {
-              'id': 1,
-              'user_id': 1,
-              'user_firstname': "John",
-              "user_name": "Wallas",
-              "user_img": "https://loremflickr.com/320/240?lock=1",
-              "rate": 4,
-              "comment": "Well, it was ok."
+              id: 1,
+              user_id: 1,
+              user_firstname: "John",
+              user_name: "Wallas",
+              user_img: "https://loremflickr.com/320/240?lock=1",
+              rate: 4,
+              comment: "Well, it was ok."
             }
-          ],
+          ]
         },
 
         comment:

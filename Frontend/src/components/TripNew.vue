@@ -61,7 +61,8 @@
           {
             id: "1",
             model: "Opel Astra",
-            color: "rouge"
+            color: "rouge",
+            registration: "XXX"
           },
           {
             id: "2",
@@ -76,6 +77,7 @@
           departure_time: "",
           arriving_time: "",
           car_id: null,
+          user_id: null
 
         }
       }
@@ -90,7 +92,7 @@
     },
     mounted()
     {
-      // TODO : Req
+      // TODO : Req | Get cars
 
     }
   }

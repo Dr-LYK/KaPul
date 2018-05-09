@@ -97,6 +97,8 @@
         form: {from: "", to: "", date: ""}
       }
     },
+
+
     methods:
     {
       showTrip(id)

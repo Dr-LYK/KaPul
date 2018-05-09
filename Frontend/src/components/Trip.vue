@@ -98,6 +98,10 @@
         dialogVisible: false
       }
     },
+    mounted()
+    {
+      // TODO : REQ | Query search
+    },
     methods:
     {
       dateFormatter(date)
