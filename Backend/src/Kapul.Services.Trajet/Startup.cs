@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Kapul.Common.Commands;
+﻿using Kapul.Common.Commands;
 using Kapul.Common.RabbitMq;
 using Kapul.Services.Trajet.Handler;
 using Microsoft.AspNetCore.Builder;
@@ -38,7 +34,6 @@ namespace Kapul.Services.Trajet
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseMvc();
         }
     }
