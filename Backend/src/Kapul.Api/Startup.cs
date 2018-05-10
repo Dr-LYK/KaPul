@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Kapul.Api.Handler;
+using Kapul.Common.Auth;
 using Kapul.Common.Events;
 using Kapul.Common.RabbitMq;
 using Microsoft.AspNetCore.Builder;
@@ -27,6 +28,7 @@ namespace Kapul.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddJwt(Configuration);
             services.AddRabbitMq(Configuration);
             services.AddScoped<IEventHandler<TrajetCreated>, TrajetCreatedHandler>();
         }
