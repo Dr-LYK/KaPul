@@ -26,7 +26,7 @@ namespace Kapul.Api.Controllers
             command.Id = Guid.NewGuid();
             command.CreatedAt = DateTime.UtcNow;
             await _busClient.PublishAsync(command);
-            return Accepted($"trajet/{command.Id}");
+            return Accepted($"trajets/{command.Id}");
         }
 
         [HttpGet("")]
