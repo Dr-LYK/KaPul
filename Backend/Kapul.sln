@@ -12,6 +12,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kapul.Services.Trajet", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kapul.Services.Identity", "src\Kapul.Services.Identity\Kapul.Services.Identity.csproj", "{7443A479-5BC6-4FA1-8FF1-A15B40C74D3E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{24D66BFE-CBF7-4822-B3C4-35EA39A1A178}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
