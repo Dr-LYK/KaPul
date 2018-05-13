@@ -12740,7 +12740,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Antoine\\.nuget\\packages\\": {},
+    "C:\\Users\\Farah Nedjadi\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
@@ -12750,18 +12750,18 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "D:\\Cours .NET\\Project\\KaPul\\Backend\\src\\Kapul.Api\\Kapul.Api.csproj",
+      "projectUniqueName": "\\\\vmware-host\\Shared Folders\\Bureau\\KaPul\\Backend\\src\\Kapul.Api\\Kapul.Api.csproj",
       "projectName": "Kapul.Api",
-      "projectPath": "D:\\Cours .NET\\Project\\KaPul\\Backend\\src\\Kapul.Api\\Kapul.Api.csproj",
-      "packagesPath": "C:\\Users\\Antoine\\.nuget\\packages\\",
-      "outputPath": "D:\\Cours .NET\\Project\\KaPul\\Backend\\src\\Kapul.Api\\obj\\",
+      "projectPath": "\\\\vmware-host\\Shared Folders\\Bureau\\KaPul\\Backend\\src\\Kapul.Api\\Kapul.Api.csproj",
+      "packagesPath": "C:\\Users\\Farah Nedjadi\\.nuget\\packages\\",
+      "outputPath": "\\\\vmware-host\\Shared Folders\\Bureau\\KaPul\\Backend\\src\\Kapul.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Antoine\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Farah Nedjadi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
@@ -12775,8 +12775,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "D:\\Cours .NET\\Project\\KaPul\\Backend\\src\\Kapul.Common\\Kapul.Common.csproj": {
-              "projectPath": "D:\\Cours .NET\\Project\\KaPul\\Backend\\src\\Kapul.Common\\Kapul.Common.csproj"
+            "\\\\vmware-host\\Shared Folders\\Bureau\\KaPul\\Backend\\src\\Kapul.Common\\Kapul.Common.csproj": {
+              "projectPath": "\\\\vmware-host\\Shared Folders\\Bureau\\KaPul\\Backend\\src\\Kapul.Common\\Kapul.Common.csproj"
             }
           }
         }

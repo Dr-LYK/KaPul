@@ -24,6 +24,7 @@ namespace Kapul.Services.Trajet
         {
             services.AddMvc();
             services.AddRabbitMq(Configuration);
+            services.AddScoped<Domain.Repositories.ITrajetRepository, Repository.TrajetRepository>();
             services.AddScoped<ICommandHandler<CreateTrajet>, CreateTrajetHandler>();
         }
 
