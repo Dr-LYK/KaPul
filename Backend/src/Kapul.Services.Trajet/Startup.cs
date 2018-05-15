@@ -29,6 +29,7 @@ namespace Kapul.Services.Trajet
             services.AddScoped<ICommandHandler<CreateTrajet>, CreateTrajetHandler>();
             services.AddScoped<Domain.Repositories.ITrajetRepository, Repository.TrajetRepository>();
             services.AddScoped<IDatabaseSeeder, Services.CustomMongoSeeder>();
+            services.AddScoped<Services.ITrajetService, Services.TrajetService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

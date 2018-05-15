@@ -34,6 +34,11 @@ namespace Kapul.Services.Trajet.Domain.Models
 
         public Trajet(Guid userId, string departure, DateTime departureTime, string arrival, double price, long sitsAvailable)
         {
+            /*if (string.IsNullOrWhiteSpace(departure) || string.IsNullOrWhiteSpace(arrival))
+            {
+                throw new Exception("wrong trajet");
+            }*/
+
             Id = Guid.NewGuid();
             CreatedAt = DateTime.Now;
             UserId = userId;
