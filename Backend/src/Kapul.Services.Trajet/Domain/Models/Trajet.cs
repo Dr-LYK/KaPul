@@ -27,6 +27,11 @@ namespace Kapul.Services.Trajet.Domain.Models
         {
         }
 
+        public Trajet(string departure)
+        {
+            Departure = departure;
+        }
+
         public Trajet(Guid userId, string departure, DateTime departureTime, string arrival, double price, long sitsAvailable)
         {
             Id = Guid.NewGuid();

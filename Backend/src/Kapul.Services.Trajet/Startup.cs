@@ -26,8 +26,9 @@ namespace Kapul.Services.Trajet
             services.AddMvc();
             services.AddRabbitMq(Configuration);
             services.AddMongoDB(Configuration);
-            services.AddScoped<Domain.Repositories.ITrajetRepository, Repository.TrajetRepository>();
             services.AddScoped<ICommandHandler<CreateTrajet>, CreateTrajetHandler>();
+            services.AddScoped<Domain.Repositories.ITrajetRepository, Repository.TrajetRepository>();
+            services.AddScoped<IDatabaseSeeder, Services.CustomMongoSeeder>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +38,7 @@ namespace Kapul.Services.Trajet
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.ApplicationServices.GetService<IDatabaseInitializer>().InitializeAsync();
             app.UseMvc();
         }
     }

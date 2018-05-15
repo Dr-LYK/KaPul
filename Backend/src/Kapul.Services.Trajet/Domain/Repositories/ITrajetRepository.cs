@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Kapul.Services.Trajet.Domain.Repositories
 {
-    interface ITrajetRepository
+    public interface ITrajetRepository
     {
         Task<Models.Trajet> GetAsync(Guid id);
         Task AddTrajet(Models.Trajet trajet);

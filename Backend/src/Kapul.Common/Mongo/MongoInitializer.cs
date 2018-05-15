@@ -14,10 +14,12 @@ namespace Kapul.Common.Mongo
         private readonly bool _seed;
         private readonly IMongoDatabase _database;
 
+        private readonly IDatabaseSeeder _seeder ;
 
-        public MongoInitializer(IMongoDatabase database, IOptions<MongoOptions> options)
+        public MongoInitializer(IMongoDatabase database, IDatabaseSeeder seeder, IOptions<MongoOptions> options)
         {
             _database = database;
+            _seeder = seeder;
             _seed = options.Value.Seed;
         }
         public async Task InitializeAsync()
@@ -29,6 +31,8 @@ namespace Kapul.Common.Mongo
 
             if (!_seed)
                 return;
+
+            await _seeder.SeedAsync();
         }
 
         private void RegisterConventions()
