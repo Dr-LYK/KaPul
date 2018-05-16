@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Kapul.Api.Handler;
+using Kapul.Api.Repositories;
 using Kapul.Common.Auth;
 using Kapul.Common.Events;
+using Kapul.Common.Mongo;
 using Kapul.Common.RabbitMq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,9 +30,14 @@ namespace Kapul.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddLogging();
             services.AddJwt(Configuration);
+            services.AddMongoDB(Configuration);
             services.AddRabbitMq(Configuration);
             services.AddScoped<IEventHandler<TrajetCreated>, TrajetCreatedHandler>();
+            //services.AddScoped<IEventHandler<UserAuthenticated>, UserAuthenticatedHandler>();
+            //services.AddScoped<IEventHandler<UserCreated>, UserCreatedHandler>();
+            services.AddScoped<ITrajetRepository, TrajetRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

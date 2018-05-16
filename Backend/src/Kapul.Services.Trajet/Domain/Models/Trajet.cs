@@ -7,21 +7,21 @@ namespace Kapul.Services.Trajet.Domain.Models
 {
     public class Trajet
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; protected set; }
 
-        public Guid UserId { get; set; }
+        public Guid UserId { get; protected set; }
 
-        public string Departure { get; set; }
+        public string Departure { get; protected set; }
 
-        public DateTime DepartureTime { get; set; }
+        public DateTime DepartureTime { get; protected set; }
 
-        public string Arrival { get; set; }
+        public string Arrival { get; protected set; }
 
-        public double Price { get; set; }
+        public double Price { get; protected set; }
 
-        public long SitsAvailable { get; set; }
+        public long SitsAvailable { get; protected set; }
 
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; protected set; }
 
         protected Trajet()
         {

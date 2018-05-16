@@ -27,6 +27,7 @@ namespace Kapul.Services.Trajet.Services
 
             await Task.WhenAll(trajets.Select( x =>
                 _trajetRepository.AddTrajet(new Domain.Models.Trajet(x))));*/
+            await Task.CompletedTask;
         }
     }
 }

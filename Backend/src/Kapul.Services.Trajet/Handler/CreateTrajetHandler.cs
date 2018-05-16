@@ -26,6 +26,7 @@ namespace Kapul.Services.Trajet.Handler
         public async Task HandleAsync(CreateTrajet command)
         {
             _logger.LogInformation($"Creating Trajet {command.Departure} -> {command.Arrival}");
+            Console.WriteLine($"Creating Trajet {command.Departure} -> {command.Arrival}");
             try
             {
                 await _trajetService.AddAsync(command.Id, command.Departure, command.DepartureTime, command.Arrival, command.Price, command.SitsAvailable);
