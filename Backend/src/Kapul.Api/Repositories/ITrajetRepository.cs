@@ -10,6 +10,6 @@ namespace Kapul.Api.Repositories
     {
         Task<Trajet> GetAsync(Guid id);
         Task AddAsync(Trajet trajet);
-        Task<IEnumerable<Trajet>> BrowseAsync(Guid userId);
+        Task<IEnumerable<Trajet>> BrowseAsync();
     }
 }

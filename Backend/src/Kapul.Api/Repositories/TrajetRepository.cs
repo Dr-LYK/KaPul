@@ -20,8 +20,8 @@ namespace Kapul.Api.Repositories
         public async Task AddAsync(Trajet trajet)
             => await Collection.InsertOneAsync(trajet);
 
-        public async Task<IEnumerable<Trajet>> BrowseAsync(Guid userId)
-            => await Collection.AsQueryable().Where(x => x.UserId == userId).ToListAsync();
+        public async Task<IEnumerable<Trajet>> BrowseAsync()
+            => await Collection.AsQueryable().ToListAsync();
 
         public async Task<Trajet> GetAsync(Guid id)
             => await Collection.AsQueryable().FirstOrDefaultAsync(i => i.Id == id);
