@@ -1,7 +1,8 @@
 <template>
-  <div class="home" style="margin-top: 20px;">
 
-    <el-col type="flex">
+  <div class="divSection">
+
+    <el-row type="flex">
 
       <el-col :span="16" style="margin-left: 20px;">
 
@@ -55,7 +56,7 @@
         <trip-search :form="{from: '', to: '', date: ''}"></trip-search>
       </el-col>
 
-    </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -119,8 +120,12 @@
 
 <style scoped>
 
-
-
+  .divSection
+  {
+    padding-top: 64px;
+    padding-bottom: 100px;
+    width: 100%;
+  }
   .cardBestPrices, .cardNextDepartures
   {
     cursor: pointer;

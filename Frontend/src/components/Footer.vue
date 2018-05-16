@@ -1,7 +1,7 @@
 <template>
-  <footer class="bg-LightGrey fixed-bottom">
+  <footer class="bg-LightGrey container-fluid">
     <div style="height: 50px;">
-      <el-row type="flex" justify="space-between" class="mt-3">
+      <el-row type="flex" justify="space-between" class="pt-3">
         <el-col :span="10">
           <el-row type="flex" justify="start" >
             <el-col :span="6"><div class="grid-content"><i class="fab fa-facebook-f"></i></div></el-col>
@@ -35,6 +35,11 @@
 </script>
 
 <style scoped>
+
+  footer
+  {
+    margin-top: 100px;
+  }
 
   footer i
   {

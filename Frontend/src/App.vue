@@ -2,7 +2,7 @@
   <div id="app">
     <Navbar></Navbar>
 
-    <router-view style="padding-top: 100px;"/>
+    <router-view class="container-fluid" style="padding-top: 100px;"/>
 
     <Footer></Footer>
   </div>
@@ -30,14 +30,23 @@
   html, body
   {
     height: 100%;
+    box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after
+  {
+    box-sizing: inherit;
   }
 
   body
   {
     position: relative;
     margin: 0;
+    padding-bottom: 6rem;
     min-height: 100%;
-    width: 100%;
+
   }
 /*
   footer
@@ -58,6 +67,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+    width: 100%;
   }
 
   .bg-LightGrey
@@ -73,6 +83,5 @@
   {
     color: white;
   }
-
 
 </style>
