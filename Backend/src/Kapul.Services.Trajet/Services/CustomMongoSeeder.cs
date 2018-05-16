@@ -19,14 +19,14 @@ namespace Kapul.Services.Trajet.Services
 
         protected override async Task CustomSeedAsync()
         {
-            var trajets = new List<string>
+            /*var trajets = new List<string>
             {
                 "Londres",
                 "Paris"
             };
 
             await Task.WhenAll(trajets.Select( x =>
-                _trajetRepository.AddTrajet(new Domain.Models.Trajet(x))));
+                _trajetRepository.AddTrajet(new Domain.Models.Trajet(x))));*/
         }
     }
 }

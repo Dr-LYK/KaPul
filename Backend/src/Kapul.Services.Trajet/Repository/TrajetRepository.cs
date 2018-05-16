@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using Kapul.Services.Trajet.Domain.Repositories;
+using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Kapul.Services.Trajet.Repository
 {
-    public class TrajetRepository : Domain.Repositories.ITrajetRepository
+    public class TrajetRepository : ITrajetRepository
     {
         private readonly IMongoDatabase _database;
 

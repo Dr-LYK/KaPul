@@ -24,8 +24,9 @@ namespace Kapul.Services.Trajet
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddRabbitMq(Configuration);
+            services.AddLogging();
             services.AddMongoDB(Configuration);
+            services.AddRabbitMq(Configuration);
             services.AddScoped<ICommandHandler<CreateTrajet>, CreateTrajetHandler>();
             services.AddScoped<Domain.Repositories.ITrajetRepository, Repository.TrajetRepository>();
             services.AddScoped<IDatabaseSeeder, Services.CustomMongoSeeder>();
