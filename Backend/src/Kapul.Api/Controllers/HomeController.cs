@@ -1,5 +1,6 @@
 ﻿using Kapul.Api.ModelBinding;
 using Kapul.Api.Repositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using RawRabbit;
 using System;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace Kapul.Api.Controllers
 {
     [Route("")]
+    [EnableCors("AllowAllHeaders")]
     public class HomeController: Controller
     {
         private readonly IBusClient _busClient;
