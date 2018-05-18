@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Kapul.Common.Auth;
+using Kapul.Common.Commands;
+using Kapul.Common.Mongo;
+using Kapul.Common.RabbitMq;
+using Kapul.Services.Identity.Domain.Repositories;
+using Kapul.Services.Identity.Domain.Services;
+using Kapul.Services.Identity.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,7 +31,14 @@ namespace Kapul.Services.Identity
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddLogging();
             services.AddJwt(Configuration);
+            services.AddMongoDB(Configuration);
+            services.AddRabbitMq(Configuration);
+            services.AddScoped<ICommandHandler<CreateUser>, CreateUserHandler>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddSingleton<IEncrypter, Encrypter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
