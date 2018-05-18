@@ -20,7 +20,7 @@ namespace Kapul.Common.Events
 
         public double Price { get; }
 
-        public long SitsAvailable { get; }
+        public ulong SitsAvailable { get; }
 
         public DateTime CreatedAt { get; }
 
@@ -30,7 +30,7 @@ namespace Kapul.Common.Events
 
         public TrajetCreated(Guid id, Guid userId,
             string departure, DateTime departureTime, string arrival, DateTime arrivalTime,
-            double price, long sitsAvailable, DateTime createdAt)
+            double price, ulong sitsAvailable, DateTime createdAt)
         {
             this.Id = id;
             this.UserId = userId;

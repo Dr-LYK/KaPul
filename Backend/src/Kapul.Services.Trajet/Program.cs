@@ -20,6 +20,7 @@ namespace Kapul.Services.Trajet
                 .UseRabbitMq()
                 .SubscribeToCommand<CreateTrajet>()
                 .SubscribeToCommand<DeleteTrajet>()
+                .SubscribeToCommand<BookTrajet>()
                 //Add subscription
                 .Build()
                 .Run();

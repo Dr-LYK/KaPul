@@ -29,6 +29,9 @@ namespace Kapul.Api.Repositories
         public async Task DeleteAsync(Guid id)
            => await Collection.DeleteOneAsync(i => i.Id == id);
 
+        public async Task UpdateAsync(Trajet trajet)
+             => await Collection.ReplaceOneAsync(t => t.Id == trajet.Id, trajet);
+
         private IMongoCollection<Trajet> Collection
             => _database.GetCollection<Trajet>("Trips");
     }

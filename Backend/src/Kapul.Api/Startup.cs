@@ -36,6 +36,7 @@ namespace Kapul.Api
             services.AddRabbitMq(Configuration);
             services.AddScoped<IEventHandler<TrajetCreated>, TrajetCreatedHandler>();
             services.AddScoped<IEventHandler<TrajetDeleted>, TrajetDeletedHandler>();
+            services.AddScoped<IEventHandler<TrajetBooked>, TrajetBookedHandler>();
             //services.AddScoped<IEventHandler<UserAuthenticated>, UserAuthenticatedHandler>();
             //services.AddScoped<IEventHandler<UserCreated>, UserCreatedHandler>();
             services.AddScoped<ITrajetRepository, TrajetRepository>();

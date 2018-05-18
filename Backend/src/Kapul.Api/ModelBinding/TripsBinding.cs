@@ -23,7 +23,7 @@ namespace Kapul.Api.ModelBinding
 
         public double Price { get; set; }
 
-        public long SitsAvailable { get; set; }
+        public ulong SitsAvailable { get; set; }
 
         public long Car_id { get; set; }
 

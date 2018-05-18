@@ -10,5 +10,6 @@ namespace Kapul.Services.Trajet.Services
     {
         Task AddAsync(CreateTrajet command);
         Task DeleteAsync(Guid id);
+        Task UpdateAsync(BookTrajet command);
     }
 }

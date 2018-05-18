@@ -21,7 +21,7 @@ namespace Kapul.Services.Trajet.Domain.Models
 
         public double Price { get; protected set; }
 
-        public long SitsAvailable { get; protected set; }
+        public ulong SitsAvailable { get; protected set; }
 
         public DateTime CreatedAt { get; protected set; }
 
@@ -34,7 +34,7 @@ namespace Kapul.Services.Trajet.Domain.Models
             Departure = departure;
         }
 
-        public Trajet(Guid id, Guid userId, string departure, DateTime departureTime, string arrival, DateTime arrivalTime, double price, long sitsAvailable, DateTime createdAt)
+        public Trajet(Guid id, Guid userId, string departure, DateTime departureTime, string arrival, DateTime arrivalTime, double price, ulong sitsAvailable, DateTime createdAt)
         {
             /*if (string.IsNullOrWhiteSpace(departure) || string.IsNullOrWhiteSpace(arrival))
             {

@@ -26,6 +26,9 @@ namespace Kapul.Services.Trajet.Repository
         public async Task DeleteTrajet(Guid id)
          => await Collection.DeleteOneAsync(i => i.Id == id);
 
+        public async Task UpdateTrajet(Domain.Models.Trajet trajet)
+           => await Collection.ReplaceOneAsync(t => t.Id == trajet.Id, trajet);
+
         private IMongoCollection<Domain.Models.Trajet> Collection
             => _database.GetCollection<Domain.Models.Trajet>("Trips");
     }

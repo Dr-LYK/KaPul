@@ -59,6 +59,44 @@ namespace Kapul.Api.Controllers
             return Accepted($"trips/{command.Id}");
         }
 
+        [HttpPost("{id}/booking")]
+        public async Task<IActionResult> Post([FromBody]SeatNumber seatRequested, Guid id)
+        {
+            if (seatRequested == null)
+            {
+                return BadRequest();
+            }
+            Models.Trajet trajet = await _repository.GetAsync(id);
+            if (trajet == null)
+            {
+                return NotFound();
+            }
+            if (trajet.SitsAvailable < seatRequested.Nb_seat)
+            {
+                return Forbid($"Only {trajet.SitsAvailable} seats available on trip {trajet.Id}");
+            }
+            BookTrajet command = new BookTrajet
+            {
+                TrajetCreated = new CreateTrajet { 
+                    Id = trajet.Id,
+                    UserId = trajet.UserId,
+                    Departure = trajet.Departure,
+                    DepartureTime = trajet.DepartureTime,
+                    Arrival = trajet.Arrival,
+                    ArrivalTime = trajet.ArrivalTime,
+                    Price = trajet.Price,
+                    SitsAvailable = trajet.SitsAvailable,
+                    CreatedAt = trajet.CreatedAt
+                },
+                //UserId = Guid.Parse(User.Identity.Name)
+                UserId = Guid.NewGuid(),
+                SeatNumber = seatRequested.Nb_seat,
+                BookDate = DateTime.UtcNow
+            };
+            await _busClient.PublishAsync(command);
+            return Accepted($"trips/{trajet.Id}");
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
@@ -74,7 +112,6 @@ namespace Kapul.Api.Controllers
                 Departure = trajet.Departure,
                 Arrival = trajet.Arrival
             };
-            Console.WriteLine("Publishing delete command");
             await _busClient.PublishAsync(command);
             return Accepted();
         }

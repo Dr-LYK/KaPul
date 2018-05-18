@@ -20,6 +20,7 @@ namespace Kapul.Api
                 .UseRabbitMq()
                 .SubscribeToEvent<TrajetCreated>()
                 .SubscribeToEvent<TrajetDeleted>()
+                .SubscribeToEvent<TrajetBooked>()
                 //Add subscription
                 .Build()
                 .Run();
