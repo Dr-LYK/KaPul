@@ -68,7 +68,7 @@ namespace Kapul.Api.Controllers
         [HttpPost("new")]
         public async Task<IActionResult> Post([FromBody]TripsBinding trip)
         {
-            if (trip == null)
+            if (trip == null || trip.Departure_time > trip.Arriving_time)
             {
                 return BadRequest();
             }
