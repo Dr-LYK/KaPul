@@ -27,7 +27,10 @@ namespace Kapul.Api.Repositories
             => await Collection.AsQueryable().Where(x => x.DepartureTime >= DateTime.Now).ToListAsync();
 
         public async Task<IEnumerable<Trajet>> BrowseAsync(string from, string to, DateTime date)
-            => await Collection.AsQueryable().Where(t => t.Departure == from && t.Arrival == to && t.DepartureTime == date).ToListAsync();
+        {
+            var collection = await Collection.AsQueryable().ToListAsync();
+            return collection.Where(t => t.Departure == from && t.Arrival == to && t.DepartureTime.Date == date.Date);
+        }
 
         public async Task<Trajet> GetAsync(Guid id)
             => await Collection.AsQueryable().FirstOrDefaultAsync(i => i.Id == id);
