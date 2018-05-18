@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 namespace Kapul.Services.Identity.DataAccess.Interfaces
 {
-    public interface ICar
+    public interface ICarRepository
     {
         Task<DBO.Car> Get(long id);
         Task<DBO.Car> Create(DBO.Car car);
