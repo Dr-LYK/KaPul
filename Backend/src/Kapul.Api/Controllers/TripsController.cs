@@ -76,7 +76,7 @@ namespace Kapul.Api.Controllers
             command.Id = Guid.NewGuid();
             command.CreatedAt = DateTime.UtcNow;
             await _busClient.PublishAsync(command);
-            return Accepted($"trips/{command.Id}");
+            return Json(new { command.Id });
         }
 
         [HttpPost("{id}/booking")]
