@@ -17,6 +17,8 @@ namespace Kapul.Services.Trajet.Domain.Models
 
         public string Arrival { get; protected set; }
 
+        public DateTime ArrivalTime { get; protected set; }
+
         public double Price { get; protected set; }
 
         public long SitsAvailable { get; protected set; }

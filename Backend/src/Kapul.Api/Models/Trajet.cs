@@ -17,6 +17,8 @@ namespace Kapul.Api.Models
 
         public string Arrival { get; set; }
 
+        public DateTime ArrivalTime { get; set; }
+
         public double Price { get; set; }
 
         public long SitsAvailable { get; set; }

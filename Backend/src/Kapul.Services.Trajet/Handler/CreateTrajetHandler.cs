@@ -30,7 +30,7 @@ namespace Kapul.Services.Trajet.Handler
             try
             {
                 await _trajetService.AddAsync(command.Id, command.Departure, command.DepartureTime, command.Arrival, command.Price, command.SitsAvailable);
-                await _busClient.PublishAsync(new TrajetCreated(command.Id, command.UserId, command.Departure, command.DepartureTime, command.Arrival, command.Price, command.SitsAvailable, command.CreatedAt));
+                await _busClient.PublishAsync(new TrajetCreated(command.Id, command.UserId, command.Departure, command.DepartureTime, command.Arrival, command.ArrivalTime, command.Price, command.SitsAvailable, command.CreatedAt));
                 
                 return;
             }

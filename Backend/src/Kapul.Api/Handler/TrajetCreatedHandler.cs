@@ -25,6 +25,7 @@ namespace Kapul.Api.Handler
                 Departure = @event.Departure,
                 DepartureTime = @event.DepartureTime,
                 Arrival = @event.Arrival,
+                ArrivalTime = @event.ArrivalTime,
                 Price = @event.Price,
                 SitsAvailable = @event.SitsAvailable,
                 CreatedAt = @event.CreatedAt

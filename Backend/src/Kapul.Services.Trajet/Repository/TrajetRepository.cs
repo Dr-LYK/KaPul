@@ -24,6 +24,6 @@ namespace Kapul.Services.Trajet.Repository
             => await Collection.AsQueryable().FirstOrDefaultAsync(i => i.Id == id);
 
         private IMongoCollection<Domain.Models.Trajet> Collection
-            => _database.GetCollection<Domain.Models.Trajet>("Course");
+            => _database.GetCollection<Domain.Models.Trajet>("Trips");
     }
 }

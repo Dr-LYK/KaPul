@@ -28,6 +28,6 @@ namespace Kapul.Api.Repositories
 
 
         private IMongoCollection<Trajet> Collection
-            => _database.GetCollection<Trajet>("Course");
+            => _database.GetCollection<Trajet>("Trips");
     }
 }

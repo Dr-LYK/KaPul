@@ -1,7 +1,6 @@
-﻿using Kapul.Api.Repositories;
+﻿using Kapul.Api.ModelBinding;
+using Kapul.Api.Repositories;
 using Kapul.Common.Commands;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RawRabbit;
 using System;
@@ -12,13 +11,13 @@ using System.Threading.Tasks;
 namespace Kapul.Api.Controllers
 {
     [Route("[controller]")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class TrajetsController: Controller
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    public class TripsController: Controller
     {
         private readonly IBusClient _busClient;
         private readonly ITrajetRepository _repository;
 
-        public TrajetsController(IBusClient busClient, ITrajetRepository repository)
+        public TripsController(IBusClient busClient, ITrajetRepository repository)
         {
             this._busClient = busClient;
             this._repository = repository;
@@ -39,17 +38,18 @@ namespace Kapul.Api.Controllers
             {
                 return NotFound();
             }
-            return Json(new { trajet.Id, trajet.Departure, trajet.DepartureTime, trajet.Arrival, trajet.Price, trajet.SitsAvailable, trajet.CreatedAt });
+            return Json(new { trajet.Id, trajet.Departure, trajet.DepartureTime, trajet.Arrival, trajet.ArrivalTime, trajet.Price, trajet.SitsAvailable, trajet.CreatedAt });
         }
 
-        [HttpPost("")]
-        public async Task<IActionResult> Post([FromBody]CreateTrajet command)
+        [HttpPost("new")]
+        public async Task<IActionResult> Post([FromBody]TripsBinding trip)
         {
+            CreateTrajet command = trip.ToCreateTrajetCommand();
             command.Id = Guid.NewGuid();
             command.CreatedAt = DateTime.UtcNow;
-            command.UserId = Guid.Parse(User.Identity.Name);
+            //command.UserId = Guid.Parse(User.Identity.Name);
             await _busClient.PublishAsync(command);
-            return Accepted($"trajet/{command.Id}");
+            return Accepted($"trips/{command.Id}");
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Kapul.Services.Trajet.Services
 
         protected override async Task CustomSeedAsync()
         {
-            /*var trajets = new List<string>
+           /*var trajets = new List<string>
             {
                 "Londres",
                 "Paris"
