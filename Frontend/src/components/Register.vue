@@ -11,10 +11,7 @@
         <el-input v-model="form.email"></el-input>
       </el-form-item>
       <el-form-item label="Mot de passe">
-        <el-input v-model="form.password"></el-input>
-      </el-form-item>
-      <el-form-item label="Vérification du mot de passe">
-        <el-input v-model="form.password2"></el-input>
+        <el-input type="password" v-model="form.password"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="register()">S'inscrire</el-button>
@@ -35,8 +32,7 @@
           name: "",
           firstname: "",
           email: "",
-          password: "",
-          password2: ""
+          password: ""
         },
         httpErr: ""
       }
@@ -54,11 +50,12 @@
         .then(res =>
         {
           this.httpErr =  "Votre inscription a été prise en compte";
+          this.$router.push("/home");
 
         })
         .catch(err =>
         {
-
+          //console.log(err)
           if (err.response.status === "400")
             this.httpErr = "Champs invalides";
         });

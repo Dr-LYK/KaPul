@@ -1,8 +1,8 @@
 export const CONFIG =
 {
-  API_URL: "http://localhost:3000/api",
+  API_URL: "http://localhost:5000",
   API_KEY: "x01",
-  API_ASSETS_URL: "http://localhost:3000",
-  APP_NAME: 'CMNT',
+  API_ASSETS_URL: "http://localhost:5000",
+  APP_NAME: '',
   LANG: 'fr',
 };

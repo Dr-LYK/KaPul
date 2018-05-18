@@ -90,7 +90,7 @@
 
         this.$http.request(
           {
-            url: "/trips",
+            url: "/trips/new",
             method: "post",
             data: this.form
           })
