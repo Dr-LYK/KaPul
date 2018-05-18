@@ -1,0 +1,36 @@
+KaPul
+=====
+Facilite le covoiturage entre particuliers
+------------------------------------------
+
+- Création d'un trajet
+-- Ville et date de départ
+-- Ville et date d'arrivé 
+-- Nombre de places disponible
+-- Prix par personne
+-- Voiture utilisée
+-- Conducteur (utilisateur)
+
+- Suppression d'un trajet
+
+- Réservation d'un trajet
+
+- Recherche d'un trajet
+
+- Incription / Connexion
+-- Adresse mail
+-- Mot de passe
+-- Nom
+-- Prénom
+
+- Profil utilisateur
+-- Trajets effectués
+-- Voiture de son garage
+-- Avis
+-- Note
+
+- Ajout d'un voiture au "garage"
+-- Modele
+-- Marque
+-- Couleur
+
