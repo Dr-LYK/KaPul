@@ -33,7 +33,6 @@ namespace Kapul.Services.Identity
             services.AddMvc();
             services.AddLogging();
             services.AddJwt(Configuration);
-            services.AddMongoDB(Configuration);
             services.AddRabbitMq(Configuration);
             services.AddScoped<ICommandHandler<CreateUser>, CreateUserHandler>();
             services.AddScoped<IUserRepository, UserRepository>();

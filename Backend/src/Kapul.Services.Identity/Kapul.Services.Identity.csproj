@@ -17,6 +17,7 @@
     <Folder Include="DataAccess\Interfaces\" />
     <Folder Include="DataAccess\Repositories\" />
     <Folder Include="DataAccess\Handler\" />
+    <Folder Include="BusinessManagement\Interfaces\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,4 +34,7 @@
     <ProjectReference Include="..\Kapul.Common\Kapul.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="DataAccess\Car.cs" />
+  </ItemGroup>
 </Project>
