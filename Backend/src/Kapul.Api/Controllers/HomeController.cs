@@ -28,17 +28,35 @@ namespace Kapul.Api.Controllers
         }
 
         [HttpGet("bestPrices")]
-        public IActionResult GetBestPrices()
+        public async Task<IActionResult> GetBestPrices([FromQuery]uint limit = 3)
         {
-            return Content("BestPrices: Not Implemented Yet");
+            var trajets = await _repository.BrowseFutureAsync();
+            List<Models.Trajet> trajetsSorted = trajets.ToList();
+            trajetsSorted.Sort((x, y) => x.Price.CompareTo(y.Price));
+            List<Models.Trajet> cheapestTrajets = new List<Models.Trajet>();
+            foreach (var trajet in trajetsSorted)
+            {
+                if (limit == 0)
+                {
+                    break;
+                }
+                else
+                {
+                    cheapestTrajets.Add(trajet);
+                    limit--;
+                }
+            }
+            return Json(cheapestTrajets.Select(x => {
+                TripsBinding trip = new TripsBinding(x);
+                return new { trip.Id, trip.Departure_city, trip.Departure_time, trip.Arriving_city, trip.Arriving_time, trip.Price, trip.Remaining_seats, x.CreatedAt, trip.User_id };
+            }));
         }
 
         [HttpGet("nextDepartures")]
         public async Task<IActionResult> GetNextDepartures([FromQuery]uint limit = 3)
         {
-            var trajets = await _repository.BrowseAsync();
+            var trajets = await _repository.BrowseFutureAsync();
             List<Models.Trajet> trajetsSorted = trajets.ToList();
-            trajetsSorted = trajetsSorted.Where(x => x.DepartureTime >= DateTime.Now).ToList();
             trajetsSorted.Sort((x, y) => x.DepartureTime.CompareTo(y.DepartureTime));
             List<Models.Trajet> nextTrajets = new List<Models.Trajet>();
             foreach (var trajet in trajetsSorted)
