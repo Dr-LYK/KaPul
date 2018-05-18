@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Kapul.Common.Commands;
+using Kapul.Services.Identity.DBO;
 
 namespace Kapul.Services.Identity.BusinessManagement
 {
@@ -21,7 +22,7 @@ namespace Kapul.Services.Identity.BusinessManagement
                 UserId = command.UserId,
                 Model = command.Model,
                 Color = command.Color,
-                PlateNumber = command.PlateNumber
+                PlateNumber = command.Registration
             };
 
             return await _carRepository.Create(car);
@@ -32,7 +33,7 @@ namespace Kapul.Services.Identity.BusinessManagement
             return await _carRepository.Delete(id);
         }
 
-        public async Task<DBO.Car> Get(Guid id)
+        public async Task<Car> GetAsync(Guid id)
         {
             return await _carRepository.Get(id);
         }

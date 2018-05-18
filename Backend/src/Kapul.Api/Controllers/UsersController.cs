@@ -1,4 +1,5 @@
-﻿using Kapul.Common.Commands;
+﻿using Kapul.Api.Repositories;
+using Kapul.Common.Commands;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using RawRabbit;
@@ -14,10 +15,12 @@ namespace Kapul.Api.Controllers
     public class UsersController : Controller
     {
         private readonly IBusClient _busClient;
+        private readonly ITrajetRepository _repository;
 
-        public UsersController(IBusClient busClient)
+        public UsersController(IBusClient busClient, ITrajetRepository repository)
         {
             this._busClient = busClient;
+            this._repository = repository;
         }
 
         [HttpGet("{id}")]
@@ -54,12 +57,20 @@ namespace Kapul.Api.Controllers
             return Accepted();
         }*/
 
-        /*[HttpPost("{id}/cars")]
-        public async Task<IActionResult> AddCar([FromBody]CreateCar command)
+        [HttpPost("{id}/cars")]
+        public async Task<IActionResult> AddCar(Guid id, [FromBody]CreateCar command)
         {
+            Models.Trajet trajet = await _repository.GetAsync(id);
+            if (trajet == null)
+            {
+                return NotFound();
+            }
+            command.Id = Guid.NewGuid();
+            //command.UserId = Guid.Parse(User.Identity.Name);
+            command.UserId = Guid.NewGuid();
             await _busClient.PublishAsync(command);
-            return Accepted();
-        }*/
+            return Json(new { command.Id });
+        }
 
         /*[HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser([FromBody]CreateUser command)

@@ -21,6 +21,7 @@ namespace Kapul.Api
                 .SubscribeToEvent<TrajetCreated>()
                 .SubscribeToEvent<TrajetDeleted>()
                 .SubscribeToEvent<TrajetBooked>()
+                .SubscribeToEvent<CarCreated>()
                 //Add subscription
                 .Build()
                 .Run();

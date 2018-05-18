@@ -28,7 +28,7 @@ namespace Kapul.Services.Identity.Handler
             try
             {
                 await _carService.CreateAsync(command);
-                await _busClient.PublishAsync(new CarCreated(command.Id, command.UserId, command.Model, command.Color, command.PlateNumber));
+                await _busClient.PublishAsync(new CarCreated(command.Id, command.UserId, command.Model, command.Color, command.Registration));
 
                 return;
             }

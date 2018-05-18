@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Kapul.Common.Commands;
+using Kapul.Common.Services;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -14,12 +16,12 @@ namespace Kapul.Services.Identity
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            ServiceHost.Create<Startup>(args)
+                .UseRabbitMq()
+                .SubscribeToCommand<CreateCar>()
+                //Add subscription
+                .Build()
+                .Run();
         }
-
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
     }
 }

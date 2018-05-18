@@ -6,9 +6,10 @@ using Kapul.Common.Auth;
 using Kapul.Common.Commands;
 using Kapul.Common.Mongo;
 using Kapul.Common.RabbitMq;
-using Kapul.Services.Identity.Domain.Repositories;
-using Kapul.Services.Identity.Domain.Services;
-using Kapul.Services.Identity.Services;
+//using Kapul.Services.Identity.Domain.Repositories;
+//using Kapul.Services.Identity.Domain.Services;
+using Kapul.Services.Identity.Handler;
+//using Kapul.Services.Identity.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -34,10 +35,14 @@ namespace Kapul.Services.Identity
             services.AddLogging();
             services.AddJwt(Configuration);
             services.AddRabbitMq(Configuration);
-            services.AddScoped<ICommandHandler<CreateUser>, CreateUserHandler>();
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IUserService, UserService>();
-            services.AddSingleton<IEncrypter, Encrypter>();
+            services.AddScoped<ICommandHandler<CreateCar>, CreateCarHandler>();
+            //services.AddScoped<ICommandHandler<CreateUser>, CreateUserHandler>();
+            //services.AddScoped<IUserRepository, UserRepository>();
+            //services.AddScoped<IUserService, UserService>();
+            //services.AddSingleton<IEncrypter, Encrypter>();
+            services.AddScoped<DataAccess.IdentityContext, DataAccess.IdentityContext>();
+            services.AddScoped<DataAccess.Interfaces.ICarRepository, DataAccess.Repositories.CarRepository>();
+            services.AddScoped<BusinessManagement.Interfaces.ICarService, BusinessManagement.CarService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

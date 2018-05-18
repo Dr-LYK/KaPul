@@ -47,6 +47,7 @@ namespace Kapul.Api
             services.AddScoped<IEventHandler<TrajetCreated>, TrajetCreatedHandler>();
             services.AddScoped<IEventHandler<TrajetDeleted>, TrajetDeletedHandler>();
             services.AddScoped<IEventHandler<TrajetBooked>, TrajetBookedHandler>();
+            services.AddScoped<IEventHandler<CarCreated>, CarCreatedHandler>();
             //services.AddScoped<IEventHandler<UserAuthenticated>, UserAuthenticatedHandler>();
             //services.AddScoped<IEventHandler<UserCreated>, UserCreatedHandler>();
             services.AddScoped<ITrajetRepository, TrajetRepository>();
