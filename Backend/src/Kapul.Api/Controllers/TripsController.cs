@@ -27,7 +27,10 @@ namespace Kapul.Api.Controllers
         public async Task<IActionResult> Get()
         {
             var trajets = await _repository.BrowseAsync();
-            return Json(trajets.Select(x => new { x.Id, x.Departure, x.DepartureTime, x.Arrival, x.Price, x.SitsAvailable, x.CreatedAt }));
+            return Json(trajets.Select(x => {
+                TripsBinding trip = new TripsBinding(x);
+                return new { trip.Id, trip.Departure_city, trip.Departure_time, trip.Arriving_city, trip.Arriving_time, trip.Price, trip.SitsAvailable, x.CreatedAt, trip.User_id };
+            }));
         }
 
         [HttpGet("{id}")]
