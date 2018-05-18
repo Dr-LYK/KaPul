@@ -65,6 +65,12 @@ namespace Kapul.Api.Controllers
             return Json(new { trip.Id, trip.Departure_city, trip.Departure_time, trip.Arriving_city, trip.Arriving_time, trip.Price, trip.Remaining_seats, trajet.CreatedAt, trip.User_id });
         }
 
+        [HttpGet("{id}/car")]
+        public IActionResult GetCar(Guid id)
+        {
+            return Content($"/trips/{id}/car: Not Implemented Yet");
+        }
+
         [HttpPost("new")]
         public async Task<IActionResult> Post([FromBody]TripsBinding trip)
         {
