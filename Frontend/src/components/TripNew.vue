@@ -106,7 +106,7 @@
     },
     mounted()
     {
-      this.$http.get('/users/'+this.$session.get('id')+"/cars")
+      this.$http.get('/trips/'+this.$session.get('id')+"/car")
       .then(res =>
       {
         this.cars = res.data
