@@ -34,21 +34,22 @@ namespace Kapul.Services.Trajet.Domain.Models
             Departure = departure;
         }
 
-        public Trajet(Guid userId, string departure, DateTime departureTime, string arrival, double price, long sitsAvailable)
+        public Trajet(Guid id, Guid userId, string departure, DateTime departureTime, string arrival, DateTime arrivalTime, double price, long sitsAvailable, DateTime createdAt)
         {
             /*if (string.IsNullOrWhiteSpace(departure) || string.IsNullOrWhiteSpace(arrival))
             {
                 throw new Exception("wrong trajet");
             }*/
 
-            Id = Guid.NewGuid();
-            CreatedAt = DateTime.Now;
+            Id = id;
             UserId = userId;
             Departure = departure.ToLowerInvariant();
             DepartureTime = departureTime;
             Arrival = arrival.ToLowerInvariant();
+            ArrivalTime = arrivalTime;
             Price = price;
             SitsAvailable = sitsAvailable;
+            CreatedAt = createdAt;
         }
     }
 }

@@ -33,21 +33,25 @@ namespace Kapul.Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id)
         {
-            var trajet = await _repository.GetAsync(id);
+            Models.Trajet trajet = await _repository.GetAsync(id);
             if (trajet == null)
             {
                 return NotFound();
             }
-            return Json(new { trajet.Id, trajet.Departure, trajet.DepartureTime, trajet.Arrival, trajet.ArrivalTime, trajet.Price, trajet.SitsAvailable, trajet.CreatedAt });
+            TripsBinding trip = new TripsBinding(trajet);
+            return Json(new { trip.Id, trip.Departure_city, trip.Departure_time, trip.Arriving_city, trip.Arriving_time, trip.Price, trip.SitsAvailable, trajet.CreatedAt, trip.User_id });
         }
 
         [HttpPost("new")]
         public async Task<IActionResult> Post([FromBody]TripsBinding trip)
         {
+            if (trip == null)
+            {
+                return BadRequest();
+            }
             CreateTrajet command = trip.ToCreateTrajetCommand();
             command.Id = Guid.NewGuid();
             command.CreatedAt = DateTime.UtcNow;
-            //command.UserId = Guid.Parse(User.Identity.Name);
             await _busClient.PublishAsync(command);
             return Accepted($"trips/{command.Id}");
         }

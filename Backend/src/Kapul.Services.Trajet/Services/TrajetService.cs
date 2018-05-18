@@ -1,4 +1,5 @@
-﻿using Kapul.Services.Trajet.Domain.Repositories;
+﻿using Kapul.Common.Commands;
+using Kapul.Services.Trajet.Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace Kapul.Services.Trajet.Services
             _trajetRepository = trajetRepository;
         }
 
-        public async Task AddAsync(Guid userId, string departure, DateTime departureTime, string arrival, double price, long sitsAvailable)
+        public async Task AddAsync(CreateTrajet command)
         {
-            var trajet = new Domain.Models.Trajet(userId, departure, departureTime, arrival, price, sitsAvailable);
+            var trajet = new Domain.Models.Trajet(command.Id, command.UserId, command.Departure, command.DepartureTime, command.Arrival, command.ArrivalTime, command.Price, command.SitsAvailable, command.CreatedAt);
             await _trajetRepository.AddTrajet(trajet);
         }
     }

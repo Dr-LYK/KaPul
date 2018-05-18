@@ -29,7 +29,7 @@ namespace Kapul.Services.Trajet.Handler
             Console.WriteLine($"Creating Trajet {command.Departure} -> {command.Arrival}");
             try
             {
-                await _trajetService.AddAsync(command.Id, command.Departure, command.DepartureTime, command.Arrival, command.Price, command.SitsAvailable);
+                await _trajetService.AddAsync(command);
                 await _busClient.PublishAsync(new TrajetCreated(command.Id, command.UserId, command.Departure, command.DepartureTime, command.Arrival, command.ArrivalTime, command.Price, command.SitsAvailable, command.CreatedAt));
                 
                 return;

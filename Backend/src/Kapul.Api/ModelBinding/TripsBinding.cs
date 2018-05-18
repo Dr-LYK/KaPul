@@ -1,4 +1,5 @@
-﻿using Kapul.Common.Commands;
+﻿using Kapul.Api.Models;
+using Kapul.Common.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,9 @@ namespace Kapul.Api.ModelBinding
 {
     public class TripsBinding
     {
-        public Guid UserId { get; set; }
+        public Guid Id { get; set; }
+
+        public Guid User_id { get; set; }
 
         public string Departure_city { get; set; }
 
@@ -24,11 +27,29 @@ namespace Kapul.Api.ModelBinding
 
         public long Car_id { get; set; }
 
+        public TripsBinding()
+        {
+
+        }
+
+        public TripsBinding(Trajet trajet)
+        {
+            this.Id = trajet.Id;
+            this.User_id = trajet.UserId;
+            this.Departure_city = trajet.Departure;
+            this.Departure_time = trajet.DepartureTime;
+            this.Arriving_city = trajet.Arrival;
+            this.Arriving_time = trajet.ArrivalTime;
+            this.Price = trajet.Price;
+            this.SitsAvailable = trajet.SitsAvailable;
+            this.Car_id = 0; // TODO
+        }
+
         public CreateTrajet ToCreateTrajetCommand()
         {
             return new CreateTrajet
             {
-                UserId = this.UserId,
+                UserId = this.User_id,
                 Departure = this.Departure_city,
                 DepartureTime = this.Departure_time,
                 Arrival = this.Arriving_city,
