@@ -28,7 +28,7 @@ namespace Kapul.Api.Controllers
             var trajets = await _repository.BrowseAsync();
             return Json(trajets.Select(x => {
                 TripsBinding trip = new TripsBinding(x);
-                return new { trip.Id, trip.Departure_city, trip.Departure_time, trip.Arriving_city, trip.Arriving_time, trip.Price, trip.Seats_available, x.CreatedAt, trip.User_id };
+                return new { trip.Id, trip.Departure_city, trip.Departure_time, trip.Arriving_city, trip.Arriving_time, trip.Price, trip.Remaining_seats, x.CreatedAt, trip.User_id };
             }));
         }
 
@@ -48,7 +48,7 @@ namespace Kapul.Api.Controllers
                 var trajets = await _repository.BrowseAsync(from, to, date.Value);
                 return Json(trajets.Select(x => {
                     TripsBinding trip = new TripsBinding(x);
-                    return new { trip.Id, trip.Departure_city, trip.Departure_time, trip.Arriving_city, trip.Arriving_time, trip.Price, trip.Seats_available, x.CreatedAt, trip.User_id };
+                    return new { trip.Id, trip.Departure_city, trip.Departure_time, trip.Arriving_city, trip.Arriving_time, trip.Price, trip.Remaining_seats, x.CreatedAt, trip.User_id };
                 }));
             }
         }
@@ -62,7 +62,7 @@ namespace Kapul.Api.Controllers
                 return NotFound();
             }
             TripsBinding trip = new TripsBinding(trajet);
-            return Json(new { trip.Id, trip.Departure_city, trip.Departure_time, trip.Arriving_city, trip.Arriving_time, trip.Price, trip.Seats_available, trajet.CreatedAt, trip.User_id });
+            return Json(new { trip.Id, trip.Departure_city, trip.Departure_time, trip.Arriving_city, trip.Arriving_time, trip.Price, trip.Remaining_seats, trajet.CreatedAt, trip.User_id });
         }
 
         [HttpPost("new")]
