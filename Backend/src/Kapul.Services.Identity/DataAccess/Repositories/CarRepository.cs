@@ -29,7 +29,7 @@ namespace Kapul.Services.Identity.DataAccess.Repositories
             }
         }
 
-        public async Task<bool> Delete(long id)
+        public async Task<bool> Delete(Guid id)
         {
             try
             {
@@ -48,7 +48,7 @@ namespace Kapul.Services.Identity.DataAccess.Repositories
             return false;
         }
 
-        public async Task<DBO.Car> Get(long id)
+        public async Task<DBO.Car> Get(Guid id)
         {
             try
             {

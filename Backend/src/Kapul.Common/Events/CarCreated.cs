@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Kapul.Common.Events
 {
-    class CarCreated
+    public class CarCreated : IAuthenticatedEvent
     {
         public Guid Id { get; }
         public Guid UserId { get; }
@@ -17,9 +17,9 @@ namespace Kapul.Common.Events
         {
         }
 
-        public CarCreated(Guid Id, Guid UserId, string Model, string Color, string PlateNumber, DateTime CreatedAt)
+        public CarCreated(Guid Id, Guid UserId, string Model, string Color, string PlateNumber)
         {
-            this.Id = new Guid(Id.ToString());
+            this.Id = Id;
             this.UserId = UserId;
             this.Model = Model;
             this.Color = Color;

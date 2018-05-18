@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Kapul.Common.Commands
 {
-    class GetCar : IAuthenticatedCommand
+    public class GetCar : ICommand
     {
         public Guid Id { get; }
-        public Guid UserId { get; set; }
     }
 }

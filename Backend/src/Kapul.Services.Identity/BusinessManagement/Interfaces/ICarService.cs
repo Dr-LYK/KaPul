@@ -6,8 +6,8 @@ namespace Kapul.Services.Identity.BusinessManagement.Interfaces
 {
     public interface ICarService
     {
-        Task<DBO.Car> GetAsync(long id);
+        Task<DBO.Car> GetAsync(Guid id);
         Task<DBO.Car> CreateAsync(CreateCar command);
-        Task<bool> DeleteAsync(long id);
+        Task<bool> DeleteAsync(Guid id);
     }
 }
