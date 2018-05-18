@@ -29,11 +29,6 @@ namespace Kapul.Services.Trajet.Domain.Models
         {
         }
 
-        public Trajet(string departure)
-        {
-            Departure = departure;
-        }
-
         public Trajet(Guid id, Guid userId, string departure, DateTime departureTime, string arrival, DateTime arrivalTime, double price, ulong sitsAvailable, DateTime createdAt)
         {
             /*if (string.IsNullOrWhiteSpace(departure) || string.IsNullOrWhiteSpace(arrival))
