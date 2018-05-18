@@ -1,6 +1,7 @@
 ﻿using Kapul.Api.ModelBinding;
 using Kapul.Api.Repositories;
 using Kapul.Common.Commands;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using RawRabbit;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 namespace Kapul.Api.Controllers
 {
     [Route("[controller]")]
+    [EnableCors("AllowAllHeaders")]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class TripsController: Controller
     {
