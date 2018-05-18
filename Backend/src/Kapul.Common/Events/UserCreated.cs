@@ -6,17 +6,21 @@ namespace Kapul.Common.Events
 {
     public class UserCreated
     {
-        public string Email { get; }
+        public long Id { get; }
         public string Name { get; }
+        public string FirstName { get; }
+        public string Email { get; }
 
         protected UserCreated()
         {
         }
 
-        public UserCreated(string email, string name)
+        public UserCreated(long id, string name, string firstname, string email)
         {
-            this.Email = email;
+            this.Id = id;
             this.Name = name;
+            this.FirstName = firstname;
+            this.Email = email;
         }
     }
 }
