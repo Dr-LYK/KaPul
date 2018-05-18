@@ -114,7 +114,9 @@
       .catch(err =>
       {
 
-      })
+      });
+
+      this.form.user_id = this.$session.get('id');
 
     }
   }

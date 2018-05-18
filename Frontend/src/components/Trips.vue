@@ -47,7 +47,7 @@
           </p>
 
           <ul class="list-group">
-            <li v-for="item in arrTrips" class="list-group-item list_li bg-LightGrey" @click="showTrip(item.id)">
+            <li v-for="item in arrTrips" class="list-group-item list_li bg-LightGrey" @click="showTrip(item.id)" :key="item.id">
               <el-row type="flex">
                 <el-col :span="6">
                   <el-row>
@@ -140,13 +140,16 @@
       if (typeof this.$route.query.date !== 'undefined')
         this.searchForm.departure_time= this.$route.query.date;
 
+
+
+
       this.$http.get('/trips',
         {
           params:
             {
               from: this.searchForm.departure_city,
               to: this.searchForm.arriving_city,
-              date: this.searchForm.departure_time
+              date: moment(this.searchForm.departure_time).format()
             }
         })
       .then(res =>

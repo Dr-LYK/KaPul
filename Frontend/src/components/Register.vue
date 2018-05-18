@@ -47,7 +47,7 @@
       {
         this.$http.request(
         {
-          url: "/register",
+          url: "/users/register",
           method: "post",
           data: this.form
         })

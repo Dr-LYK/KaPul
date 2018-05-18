@@ -5,7 +5,7 @@
         <el-input v-model="form.email"></el-input>
       </el-form-item>
       <el-form-item label="Mot de passe">
-        <el-input v-model="form.password"></el-input>
+        <el-input type="password" v-model="form.password"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="login()">Se connecter</el-button>
@@ -38,7 +38,7 @@
       {
         this.$http.request(
           {
-            url: "/login",
+            url: "/users/login",
             method: "post",
             data: this.form
           })
