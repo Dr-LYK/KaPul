@@ -23,7 +23,7 @@
           <i class="far fa-calendar-alt"></i>
         </el-col>
         <el-col :span="16">
-          <el-date-picker prefix-icon="" type="datetime" placeholder="Date" v-model="form.departure_time" style="width: 100%;"></el-date-picker>
+          <el-date-picker type="datetime" placeholder="Date" v-model="form.departure_time" style="width: 100%;"></el-date-picker>
         </el-col>
       </el-form-item>
       <el-form-item>
@@ -42,14 +42,13 @@
       return {
       }
     },
-    props: ['form'],
 
     methods:
     {
       searchTrip: function()
       {
 
-        this.$router.push('/trips?from='+this.form.from+'&to='+this.form.to+'&date='+this.form.date);
+        window.location.replace('/trips?from='+this.form.from+'&to='+this.form.to+'&date='+this.form.date);
       }
     }
 

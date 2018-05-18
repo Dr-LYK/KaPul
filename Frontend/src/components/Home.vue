@@ -53,7 +53,38 @@
       </el-col>
 
       <el-col :span="7" class="bg-blue white" style="margin-right: 20px;">
-        <trip-search :form="{from: '', to: '', date: ''}"></trip-search>
+        <div>
+          <h2 style="line-height: 50px;">Où allez vous ?</h2>
+          <el-form ref="form" :model="form" label-width="0">
+            <el-form-item label="">
+              <el-col :span="4">
+                <i class="fab fa-font-awesome-flag"></i>
+              </el-col>
+              <el-col :span="16">
+                <el-input v-model="form.departure_city" placeholder="Départ"></el-input>
+              </el-col>
+            </el-form-item>
+            <el-form-item label="">
+              <el-col :span="4">
+                <i class="fab fa-font-awesome-flag"></i>
+              </el-col>
+              <el-col :span="16">
+                <el-input v-model="form.arriving_city" placeholder="Destination"></el-input>
+              </el-col>
+            </el-form-item>
+            <el-form-item >
+              <el-col :span="4">
+                <i class="far fa-calendar-alt"></i>
+              </el-col>
+              <el-col :span="16">
+                <el-date-picker type="datetime" placeholder="Date" v-model="form.departure_time" style="width: 100%;"></el-date-picker>
+              </el-col>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="searchTrip">J'y vais !</el-button>
+            </el-form-item>
+          </el-form>
+        </div>
       </el-col>
 
     </el-row>
@@ -62,13 +93,11 @@
 
 <script>
 
-  import TripSearch from './TripSearch'
   import moment from 'moment'
 
   export default
   {
     name: "Home",
-    components: {TripSearch},
     data()
     {
       return {
@@ -95,7 +124,7 @@
           {id: "6", departure_city: "Lyon", arriving_city: "Bordeaux", price: "37", departure_time: "2018-06-02 08:30:00", driver_firstname: "Vivian",
             driver_name: "Chaizemartin", driver_img: "https://loremflickr.com/320/240?lock=1"}
         ],
-        form: {from: "", to: "", date: ""}
+        form: {departure_city: "", arriving_city: "", departure_time: ""}
       }
     },
 
@@ -137,7 +166,13 @@
       {
         moment.locale("fr");
         return moment(date).format("Do MMM [à] H[h]mm")
-      }
+      },
+
+      searchTrip()
+      {
+        //console.log(this.form);
+        this.$router.push('/trips?from='+this.form.departure_city+'&to='+this.form.arriving_city+'&date='+this.form.departure_time);
+      },
 
     }
   }

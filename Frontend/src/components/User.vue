@@ -340,20 +340,19 @@
         this.$http.request(
           {
             url: "/users/"+this.$route.params.id+"/cars",
-            method: "put",
+            method: "post",
             data: this.item
           })
         .then(res =>
         {
-          console.log("Update profile");
-          this.dialogVisibleEditProfile = false;
+          console.log("Add car");
+          this.dialogVisibleAddCar = false;
+          this.$router.reload();
         })
         .catch(err =>
         {
 
         });
-        console.log("Add car");
-        this.dialogVisibleAddCar = false;
       },
 
       deleteCar()

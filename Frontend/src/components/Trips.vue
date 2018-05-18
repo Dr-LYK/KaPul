@@ -4,7 +4,38 @@
     <el-row type="flex">
 
       <el-col :span="7" class="bg-blue white" style="margin-left: 20px;">
-        <trip-search :form="searchForm"></trip-search>
+        <div>
+          <h2 style="line-height: 50px;">Où allez vous ?</h2>
+          <el-form ref="searchForm" :model="searchForm" label-width="0">
+            <el-form-item label="">
+              <el-col :span="4">
+                <i class="fab fa-font-awesome-flag"></i>
+              </el-col>
+              <el-col :span="16">
+                <el-input v-model="searchForm.departure_city" placeholder="Départ"></el-input>
+              </el-col>
+            </el-form-item>
+            <el-form-item label="">
+              <el-col :span="4">
+                <i class="fab fa-font-awesome-flag"></i>
+              </el-col>
+              <el-col :span="16">
+                <el-input v-model="searchForm.arriving_city" placeholder="Destination"></el-input>
+              </el-col>
+            </el-form-item>
+            <el-form-item >
+              <el-col :span="4">
+                <i class="far fa-calendar-alt"></i>
+              </el-col>
+              <el-col :span="16">
+                <el-date-picker type="datetime" placeholder="Date" v-model="searchForm.departure_time" style="width: 100%;"></el-date-picker>
+              </el-col>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="searchTrip">J'y vais !</el-button>
+            </el-form-item>
+          </el-form>
+        </div>
       </el-col>
 
       <el-col :span="17" style="margin-left: 20px;margin-right: 20px;">
@@ -56,12 +87,10 @@
 <script>
 
   import moment from 'moment'
-  import TripSearch from './TripSearch'
 
   export default
   {
     name: "trips",
-    components: {TripSearch},
     data()
     {
       return {
@@ -91,9 +120,9 @@
         ],
         searchForm:
         {
-          from : "",
-          to: "",
-          date: ""
+          departure_city : "",
+          arriving_city: "",
+          departure_time: ""
         }
       }
     },
@@ -103,21 +132,21 @@
       this.$http.defaults.headers.common['Authorization'] = "Bearer "+  this.$session.get('token');
 
       if (typeof this.$route.query.from !== 'undefined')
-        this.searchForm.from = this.$route.query.from;
+        this.searchForm.departure_city = this.$route.query.from;
 
       if (typeof this.$route.query.to !== 'undefined')
-        this.searchForm.to = this.$route.query.to;
+        this.searchForm.arriving_city = this.$route.query.to;
 
       if (typeof this.$route.query.date !== 'undefined')
-        this.searchForm.date = this.$route.query.date;
+        this.searchForm.departure_time= this.$route.query.date;
 
       this.$http.get('/trips',
         {
           params:
             {
-              from: this.searchForm.from,
-              to: this.searchForm.to,
-              date: this.searchForm.date
+              from: this.searchForm.departure_city,
+              to: this.searchForm.arriving_city,
+              date: this.searchForm.departure_time
             }
         })
       .then(res =>
@@ -133,6 +162,20 @@
 
     methods:
     {
+      searchTrip()
+      {
+        /*
+        this.$router.push({ path: '/trips', query:
+            {
+              from: this.searchForm.departure_city,
+              to: this.searchForm.arriving_city,
+              date: this.searchForm.departure_time
+            }});
+           */
+
+        window.location.replace('/trips?from='+this.searchForm.departure_city+'&to='+this.searchForm.arriving_city+'&date='+this.searchForm.departure_time);
+      },
+
       dateFormatter(date)
       {
         moment.locale('fr');
