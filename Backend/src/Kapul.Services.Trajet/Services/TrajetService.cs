@@ -21,5 +21,10 @@ namespace Kapul.Services.Trajet.Services
             var trajet = new Domain.Models.Trajet(command.Id, command.UserId, command.Departure, command.DepartureTime, command.Arrival, command.ArrivalTime, command.Price, command.SitsAvailable, command.CreatedAt);
             await _trajetRepository.AddTrajet(trajet);
         }
+
+        public async Task DeleteAsync(Guid id)
+        {
+            await _trajetRepository.DeleteTrajet(id);
+        }
     }
 }

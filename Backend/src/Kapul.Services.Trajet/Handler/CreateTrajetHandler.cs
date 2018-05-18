@@ -36,7 +36,7 @@ namespace Kapul.Services.Trajet.Handler
             }
             catch (Exception ex)
             {
-                await _busClient.PublishAsync(new CreateTrajetRejected(command.DepartureTime, command.Price, command.SitsAvailable, ex.Message, "401"));
+                await _busClient.PublishAsync(new CreateTrajetRejected(command.DepartureTime, command.ArrivalTime, command.Price, command.SitsAvailable, ex.Message, "401"));
                 _logger.LogError(ex.Message);
             }
         }

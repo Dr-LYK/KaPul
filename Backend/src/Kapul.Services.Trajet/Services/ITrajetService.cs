@@ -9,5 +9,6 @@ namespace Kapul.Services.Trajet.Services
     public interface ITrajetService
     {
         Task AddAsync(CreateTrajet command);
+        Task DeleteAsync(Guid id);
     }
 }

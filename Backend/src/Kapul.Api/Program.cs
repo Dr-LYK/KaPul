@@ -19,6 +19,7 @@ namespace Kapul.Api
             ServiceHost.Create<Startup>(args)
                 .UseRabbitMq()
                 .SubscribeToEvent<TrajetCreated>()
+                .SubscribeToEvent<TrajetDeleted>()
                 //Add subscription
                 .Build()
                 .Run();

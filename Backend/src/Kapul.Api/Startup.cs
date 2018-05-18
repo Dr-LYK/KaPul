@@ -35,6 +35,7 @@ namespace Kapul.Api
             services.AddMongoDB(Configuration);
             services.AddRabbitMq(Configuration);
             services.AddScoped<IEventHandler<TrajetCreated>, TrajetCreatedHandler>();
+            services.AddScoped<IEventHandler<TrajetDeleted>, TrajetDeletedHandler>();
             //services.AddScoped<IEventHandler<UserAuthenticated>, UserAuthenticatedHandler>();
             //services.AddScoped<IEventHandler<UserCreated>, UserCreatedHandler>();
             services.AddScoped<ITrajetRepository, TrajetRepository>();

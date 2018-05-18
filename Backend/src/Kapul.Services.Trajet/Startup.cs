@@ -28,6 +28,7 @@ namespace Kapul.Services.Trajet
             services.AddMongoDB(Configuration);
             services.AddRabbitMq(Configuration);
             services.AddScoped<ICommandHandler<CreateTrajet>, CreateTrajetHandler>();
+            services.AddScoped<ICommandHandler<DeleteTrajet>, DeleteTrajetHandler>();
             services.AddScoped<Domain.Repositories.ITrajetRepository, Repository.TrajetRepository>();
             services.AddScoped<IDatabaseSeeder, Services.CustomMongoSeeder>();
             services.AddScoped<Services.ITrajetService, Services.TrajetService>();

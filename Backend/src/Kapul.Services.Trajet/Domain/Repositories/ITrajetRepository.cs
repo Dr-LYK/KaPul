@@ -9,5 +9,6 @@ namespace Kapul.Services.Trajet.Domain.Repositories
     {
         Task<Models.Trajet> GetAsync(Guid id);
         Task AddTrajet(Models.Trajet trajet);
+        Task DeleteTrajet(Guid id);
     }
 }

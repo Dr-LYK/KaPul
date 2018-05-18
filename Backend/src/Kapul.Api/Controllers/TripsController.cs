@@ -58,5 +58,25 @@ namespace Kapul.Api.Controllers
             await _busClient.PublishAsync(command);
             return Accepted($"trips/{command.Id}");
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            Models.Trajet trajet = await _repository.GetAsync(id);
+            if (trajet == null)
+            {
+                return NotFound();
+            }
+            DeleteTrajet command = new DeleteTrajet
+            {
+                Id = trajet.Id,
+                UserId = trajet.UserId,
+                Departure = trajet.Departure,
+                Arrival = trajet.Arrival
+            };
+            Console.WriteLine("Publishing delete command");
+            await _busClient.PublishAsync(command);
+            return Accepted();
+        }
     }
 }
