@@ -4,7 +4,7 @@
     <el-row type="flex">
 
       <el-col :span="7" class="bg-blue white" style="margin-left: 20px;">
-        <trip-search :form="{from: searchForm.from, to: searchForm.to, date: searchForm.date}"></trip-search>
+        <trip-search :form="searchForm"></trip-search>
       </el-col>
 
       <el-col :span="17" style="margin-left: 20px;margin-right: 20px;">
@@ -100,6 +100,8 @@
 
     mounted()
     {
+      this.$http.defaults.headers.common['Authorization'] = "Bearer "+  this.$session.get('token');
+
       if (typeof this.$route.query.from !== 'undefined')
         this.searchForm.from = this.$route.query.from;
 
@@ -108,6 +110,24 @@
 
       if (typeof this.$route.query.date !== 'undefined')
         this.searchForm.date = this.$route.query.date;
+
+      this.$http.get('/trips',
+        {
+          params:
+            {
+              from: this.searchForm.from,
+              to: this.searchForm.to,
+              date: this.searchForm.date
+            }
+        })
+      .then(res =>
+      {
+        this.arrTrips = res.data;
+      })
+      .catch(err =>
+      {
+
+      });
 
     },
 

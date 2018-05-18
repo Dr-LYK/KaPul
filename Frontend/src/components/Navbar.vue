@@ -26,22 +26,22 @@
 </template>
 
 <script>
+
+
   export default
   {
     data()
     {
       return {
-        profileURL: "/users/2"
+        profileURL: "/users/"+this.$session.get('id')
       }
     },
     mounted: () =>
     {
+
     },
     beforeCreate: function()
     {
-      this.$session.start();
-      this.$session.set("name", "Dutroux");
-      this.$session.set("surname", "Jacques");
     }
   }
 

@@ -243,6 +243,19 @@
         dialogVisibleAddCar: false
       }
     },
+    mounted()
+    {
+      this.$http.defaults.headers.common['Authorization'] = "Bearer "+  this.$session.get('token');
+      this.$http.get('/users/'+this.$route.params.id)
+        .then(res =>
+      {
+        this.item = res.data;
+      })
+        .catch(err =>
+      {
+
+      });
+    },
     methods:
     {
       dateRegistrationFormatter(date)
@@ -267,39 +280,99 @@
           this.dialogVisibleDeleteCar = false;
         }
       },
-
       sendComment()
       {
-        // TODO : REQ
-        console.log("Send comment");
-        this.dialogVisibleAddComment = false;
+        this.$http.request(
+          {
+            url: "/users/"+this.$route.params.id+"/comments",
+            method: "post",
+            data: this.comment
+          })
+        .then(res =>
+        {
+          console.log("Send comment");
+          this.dialogVisibleAddComment = false;
+        })
+        .catch(err =>
+        {
+
+        });
+
       },
 
       updateProfile()
       {
-        console.log("Update profile");
-        this.dialogVisibleEditProfile = false;
+
+        this.$http.request(
+          {
+            url: "/users/"+this.$route.params.id,
+            method: "put",
+            data: this.item
+          })
+        .then(res =>
+        {
+          console.log("Update profile");
+          this.dialogVisibleEditProfile = false;
+        })
+        .catch(err =>
+        {
+
+        });
       },
 
       deleteProfile()
       {
-        console.log('Delete profile');
-        // TODO : REQ
-        this.dialogVisibleDeleteProfile = false;
+        this.$http.delete('/users/'+this.$route.params.id)
+        .then(res =>
+        {
+          console.log('Delete profile');
+          this.dialogVisibleDeleteProfile = false;
+          this.$router.push('/home');
+        })
+        .catch(err =>
+        {
+
+        });
       },
 
       addCar()
       {
-        // TODO: REQ
+        this.$http.request(
+          {
+            url: "/users/"+this.$route.params.id+"/cars",
+            method: "put",
+            data: this.item
+          })
+        .then(res =>
+        {
+          console.log("Update profile");
+          this.dialogVisibleEditProfile = false;
+        })
+        .catch(err =>
+        {
+
+        });
         console.log("Add car");
         this.dialogVisibleAddCar = false;
       },
 
       deleteCar()
       {
-        console.log("Delete car");
-        this.dialogVisibleDeleteCar = false;
-        // TODO : REQ
+        /*
+
+        /
+        this.$http.delete('/users/'+this.$route.params.id+"/cars/")
+        .then(res =>
+        {
+          console.log("Delete car");
+          this.dialogVisibleDeleteCar = false;
+          this.$router.reload();
+        })
+        .catch(err =>
+        {
+
+        });
+        */
       }
     }
   }

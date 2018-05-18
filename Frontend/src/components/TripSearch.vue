@@ -48,6 +48,7 @@
     {
       searchTrip: function()
       {
+
         this.$router.push('/trips?from='+this.form.from+'&to='+this.form.to+'&date='+this.form.date);
       }
     }

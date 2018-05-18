@@ -86,13 +86,35 @@
     {
       addTrip()
       {
-        // TODO : Req
-        console.log("Add")
+        this.$http.defaults.headers.common['Authorization'] = "Bearer "+  this.$session.get("token");
+
+        this.$http.request(
+          {
+            url: "/trips",
+            method: "post",
+            data: this.form
+          })
+        .then(res =>
+        {
+          this.$router.push("/trips/"+res.data.id);
+        })
+        .catch(err =>
+        {
+
+        });
       }
     },
     mounted()
     {
-      // TODO : Req | Get cars
+      this.$http.get('/users/'+this.$session.get('id')+"/cars")
+      .then(res =>
+      {
+        this.cars = res.data
+      })
+      .catch(err =>
+      {
+
+      })
 
     }
   }

@@ -37,14 +37,31 @@
           email: "",
           password: "",
           password2: ""
-        }
+        },
+        httpErr: ""
       }
     },
     methods:
     {
       register()
       {
-        console.log(this.form.name);
+        this.$http.request(
+        {
+          url: "/register",
+          method: "post",
+          data: this.form
+        })
+        .then(res =>
+        {
+          this.httpErr =  "Votre inscription a été prise en compte";
+
+        })
+        .catch(err =>
+        {
+
+          if (err.response.status === "400")
+            this.httpErr = "Champs invalides";
+        });
       }
     }
 

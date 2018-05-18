@@ -44,7 +44,7 @@
       <el-col :span="8" style="margin: 20px;">
         <el-card>
           <p>Prix par personne <span class="price">{{item.price}} €</span></p>
-          <el-select v-model="form.nb_seats" clearable placeholder="Nombre de places">
+          <el-select v-model="form.nb_seat" clearable placeholder="Nombre de places">
             <el-option
               v-for="nb in parseInt(item.remaining_seats)"
               :key="nb"
@@ -53,7 +53,8 @@
             </el-option>
           </el-select>
           <br>
-          <button v-if="form.nb_seats !== null && form.nb_seats !== ''" style="margin-top: 30px;width: 80%;" class="btn bg-orange white" @click="book()">Réserver</button>
+          <button v-if="form.nb_seat !== null && form.nb_seat !== ''" style="margin-top: 30px;width: 80%;" class="btn bg-orange white" @click="book()">Réserver</button>
+          <p>{{bookingErr}}</p>
         </el-card>
       </el-col>
     </el-row>
@@ -74,6 +75,7 @@
     data()
     {
       return {
+        bookingErr: "",
         item:
         {
           id: "4",
@@ -93,14 +95,25 @@
         },
         form:
         {
-          nb_seats: null
+          nb_seat: null
         },
         dialogVisible: false
       }
     },
     mounted()
     {
-      // TODO : REQ | Query search
+      this.$http.defaults.headers.common['Authorization'] = "Bearer "+  this.$session.get('token');
+
+      this.$http.get('/trips/'+this.$route.params.id)
+        .then(res =>
+        {
+            this.item = res.data;
+        })
+        .catch(err =>
+        {
+
+        });
+
     },
     methods:
     {
@@ -113,8 +126,21 @@
 
       book()
       {
-        // TODO : REQ
-        console.log(this.form.nb_seats)
+
+        this.$http.request(
+          {
+            url: "/trips/"+this.$route.params.id+"/booking",
+            method: "post",
+            data: this.form
+          })
+        .then(res =>
+        {
+          this.bookingErr = "Merci de votre réservation";
+        })
+        .catch(err =>
+        {
+          this.bookingErr = "Une erreur est intervenue"
+        });
       },
 
       deleteHandler(action)
@@ -127,9 +153,17 @@
       deleteTrip()
       {
         console.log("Delete");
-        // TODO : REQ
-        this.dialogVisible = false;
-        this.$router.push('/home');
+        this.$http.delete("/trips/"+this.$route.params.id)
+          .then(res =>
+        {
+          this.dialogVisible = false;
+          this.$router.push('/home');
+        })
+          .catch(err =>
+        {
+
+        });
+
       }
 
 

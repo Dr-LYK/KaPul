@@ -99,6 +99,31 @@
       }
     },
 
+    mounted()
+    {
+      this.$http.defaults.headers.common['Authorization'] = "Bearer "+  this.$session.get('token');
+
+      this.$http.get('/bestPrices')
+      .then(res =>
+      {
+        this.arrBestPrices = res.data;
+      })
+      .catch(err =>
+      {
+
+      });
+
+      this.$http.get('/nextDepartures')
+      .then(res =>
+      {
+        this.arrNextDepartures = res.data;
+      })
+      .catch(err =>
+      {
+
+      });
+
+    },
 
     methods:
     {
