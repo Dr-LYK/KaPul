@@ -13,5 +13,6 @@ namespace Kapul.Api.Repositories
         Task DeleteAsync(Guid id);
         Task UpdateAsync(Trajet trajet);
         Task<IEnumerable<Trajet>> BrowseAsync();
+        Task<IEnumerable<Trajet>> BrowseAsync(string from, string to, DateTime date);
     }
 }

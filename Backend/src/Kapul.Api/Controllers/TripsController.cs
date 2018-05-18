@@ -23,14 +23,34 @@ namespace Kapul.Api.Controllers
             this._repository = repository;
         }
 
-        [HttpGet("")]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetAll()
         {
             var trajets = await _repository.BrowseAsync();
             return Json(trajets.Select(x => {
                 TripsBinding trip = new TripsBinding(x);
-                return new { trip.Id, trip.Departure_city, trip.Departure_time, trip.Arriving_city, trip.Arriving_time, trip.Price, trip.SitsAvailable, x.CreatedAt, trip.User_id };
+                return new { trip.Id, trip.Departure_city, trip.Departure_time, trip.Arriving_city, trip.Arriving_time, trip.Price, trip.Seats_available, x.CreatedAt, trip.User_id };
             }));
+        }
+
+        [HttpGet("")]
+        public async Task<IActionResult> Get([FromQuery]string from, [FromQuery]string to, [FromQuery]DateTime? date)
+        {
+            if (from == null && to == null && !date.HasValue)
+            {
+                return await GetAll();
+            }
+            else
+            {
+                if (from == null || to == null || !date.HasValue)
+                {
+                    return BadRequest();
+                }
+                var trajets = await _repository.BrowseAsync(from, to, date.Value);
+                return Json(trajets.Select(x => {
+                    TripsBinding trip = new TripsBinding(x);
+                    return new { trip.Id, trip.Departure_city, trip.Departure_time, trip.Arriving_city, trip.Arriving_time, trip.Price, trip.Seats_available, x.CreatedAt, trip.User_id };
+                }));
+            }
         }
 
         [HttpGet("{id}")]
@@ -42,7 +62,7 @@ namespace Kapul.Api.Controllers
                 return NotFound();
             }
             TripsBinding trip = new TripsBinding(trajet);
-            return Json(new { trip.Id, trip.Departure_city, trip.Departure_time, trip.Arriving_city, trip.Arriving_time, trip.Price, trip.SitsAvailable, trajet.CreatedAt, trip.User_id });
+            return Json(new { trip.Id, trip.Departure_city, trip.Departure_time, trip.Arriving_city, trip.Arriving_time, trip.Price, trip.Seats_available, trajet.CreatedAt, trip.User_id });
         }
 
         [HttpPost("new")]
@@ -73,7 +93,7 @@ namespace Kapul.Api.Controllers
             }
             if (trajet.SitsAvailable < seatRequested.Nb_seat)
             {
-                return Forbid($"Only {trajet.SitsAvailable} seats available on trip {trajet.Id}");
+                return BadRequest($"Only {trajet.SitsAvailable} seats available on trip {trajet.Id}");
             }
             BookTrajet command = new BookTrajet
             {

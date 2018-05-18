@@ -23,7 +23,7 @@ namespace Kapul.Api.ModelBinding
 
         public double Price { get; set; }
 
-        public ulong SitsAvailable { get; set; }
+        public ulong Seats_available { get; set; }
 
         public long Car_id { get; set; }
 
@@ -41,7 +41,7 @@ namespace Kapul.Api.ModelBinding
             this.Arriving_city = trajet.Arrival;
             this.Arriving_time = trajet.ArrivalTime;
             this.Price = trajet.Price;
-            this.SitsAvailable = trajet.SitsAvailable;
+            this.Seats_available = trajet.SitsAvailable;
             this.Car_id = 0; // TODO
         }
 
@@ -55,7 +55,7 @@ namespace Kapul.Api.ModelBinding
                 Arrival = this.Arriving_city,
                 ArrivalTime = this.Arriving_time,
                 Price = this.Price,
-                SitsAvailable = this.SitsAvailable
+                SitsAvailable = this.Seats_available
             };
         }
     }
