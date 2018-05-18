@@ -13271,43 +13271,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Farah Nedjadi\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/Vivian/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "\\\\vmware-host\\Shared Folders\\Bureau\\KaPul\\Backend\\src\\Kapul.Api\\Kapul.Api.csproj",
+      "projectUniqueName": "/Users/Vivian/Documents/KaPul/Backend/src/Kapul.Api/Kapul.Api.csproj",
       "projectName": "Kapul.Api",
-      "projectPath": "\\\\vmware-host\\Shared Folders\\Bureau\\KaPul\\Backend\\src\\Kapul.Api\\Kapul.Api.csproj",
-      "packagesPath": "C:\\Users\\Farah Nedjadi\\.nuget\\packages\\",
-      "outputPath": "\\\\vmware-host\\Shared Folders\\Bureau\\KaPul\\Backend\\src\\Kapul.Api\\obj\\",
+      "projectPath": "/Users/Vivian/Documents/KaPul/Backend/src/Kapul.Api/Kapul.Api.csproj",
+      "packagesPath": "/Users/Vivian/.nuget/packages/",
+      "outputPath": "/Users/Vivian/Documents/KaPul/Backend/src/Kapul.Api/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Farah Nedjadi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "/Users/Vivian/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "\\\\vmware-host\\Shared Folders\\Bureau\\KaPul\\Backend\\src\\Kapul.Common\\Kapul.Common.csproj": {
-              "projectPath": "\\\\vmware-host\\Shared Folders\\Bureau\\KaPul\\Backend\\src\\Kapul.Common\\Kapul.Common.csproj"
+            "/Users/Vivian/Documents/KaPul/Backend/src/Kapul.Common/Kapul.Common.csproj": {
+              "projectPath": "/Users/Vivian/Documents/KaPul/Backend/src/Kapul.Common/Kapul.Common.csproj"
             }
           }
         }
@@ -13321,14 +13313,15 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "Microsoft.NETCore.App": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "2.0",
+            "autoReferenced": true
+          },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
-            "version": "[2.0.5, )"
-          },
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "[2.0.0, )",
-            "autoReferenced": true
+            "version": "2.0.5"
           }
         },
         "imports": [
