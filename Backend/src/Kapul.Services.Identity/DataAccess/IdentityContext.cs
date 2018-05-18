@@ -9,6 +9,7 @@ namespace Kapul.Services.Identity.DataAccess
         public IdentityContext(DbContextOptions<IdentityContext> options)
             : base(options)
         {
+            this.Database.EnsureCreated();
         }
 
         public DbSet<Car> Cars { get; set; }
