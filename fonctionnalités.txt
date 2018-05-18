@@ -1,21 +1,4 @@
-KaPul
-=====
-Facilite le covoiturage entre particuliers
-------------------------------------------
-
-- Création d'un trajet
--- Ville et date de départ
--- Ville et date d'arrivé 
--- Nombre de places disponible
--- Prix par personne
--- Voiture utilisée
--- Conducteur (utilisateur)
-
-- Suppression d'un trajet
-
-- Réservation d'un trajet
-
-- Recherche d'un trajet
+KaPul, Facilite le covoiturage entre particuliers
 
 - Incription / Connexion
 -- Adresse mail
@@ -25,12 +8,25 @@ Facilite le covoiturage entre particuliers
 
 - Profil utilisateur
 -- Trajets effectués
--- Voiture de son garage
+-- Voiture de son "garage"
 -- Avis
 -- Note
 
 - Ajout d'un voiture au "garage"
--- Modele
+-- Modèle 
 -- Marque
 -- Couleur
 
+- Création d'un trajet
+-- Ville et date de départ
+-- Ville et date d'arrivée  
+-- Nombre de places disponible
+-- Prix par personne
+-- Voiture utilisée
+-- Conducteur (utilisateur)
+
+- Suppression d'un trajet
+
+- Recherche d'un trajet
+
+- Réservation d'un trajet
