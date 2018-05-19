@@ -18,7 +18,9 @@ namespace Kapul.Services.Identity.DataAccess.Repositories
             try
             {
                 _context.Cars.Add(car);
+                Console.WriteLine("Before");
                 await _context.SaveChangesAsync();
+                Console.WriteLine("After");
                 return car;
             }
             catch (Exception ex)

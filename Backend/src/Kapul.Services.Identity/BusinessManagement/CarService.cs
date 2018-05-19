@@ -19,10 +19,10 @@ namespace Kapul.Services.Identity.BusinessManagement
             DBO.Car car = new DBO.Car
             {
                 Id = command.Id,
-                UserId = command.UserId,
+                User_Id = command.UserId,
                 Model = command.Model,
                 Color = command.Color,
-                PlateNumber = command.Registration
+                Registration = command.Registration
             };
 
             return await _carRepository.Create(car);

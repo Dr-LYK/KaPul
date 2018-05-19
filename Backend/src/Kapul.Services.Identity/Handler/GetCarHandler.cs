@@ -28,7 +28,7 @@ namespace Kapul.Services.Identity.Handler
             try
             {
                 DBO.Car car = await _carService.GetAsync(command.Id);
-                await _busClient.PublishAsync(new CarGot(car.Id, car.UserId, car.Model, car.Color, car.PlateNumber));
+                await _busClient.PublishAsync(new CarGot(car.Id, car.User_Id, car.Model, car.Color, car.Registration));
 
                 return;
             }

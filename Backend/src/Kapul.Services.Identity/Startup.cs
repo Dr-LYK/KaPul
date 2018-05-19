@@ -30,9 +30,11 @@ namespace Kapul.Services.Identity
 
             var hostname = Environment.GetEnvironmentVariable("SQLSERVER_HOST") ?? "localhost";
             var password = Environment.GetEnvironmentVariable("SQLSERVER_SA_PASSWORD") ?? "kapul12345&";
-            var connString = $"Data Source={hostname};Initial Catalog=KontenaAspnetCore;User ID=sa;Password={password};";
+            //var connString = $"Data Source={hostname};Initial Catalog=KontenaAspnetCore;User ID=sa;Password={password};";
 
-            services.AddDbContext<DataAccess.IdentityContext>(options => options.UseSqlServer(connString));
+            string _connStr = @"Server=localhost,1401;Database=KaPul;User Id=SA;Password=kapul12345&";
+
+            services.AddDbContext<DataAccess.IdentityContext>(options => options.UseSqlServer(_connStr));
 
             services.AddMvc();
             services.AddLogging();

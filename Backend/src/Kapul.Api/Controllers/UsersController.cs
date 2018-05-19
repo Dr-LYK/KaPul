@@ -62,14 +62,15 @@ namespace Kapul.Api.Controllers
         [HttpPost("{id}/cars")]
         public async Task<IActionResult> AddCar(Guid id, [FromBody]CreateCar command)
         {
-            Models.Trajet trajet = await _repository.GetAsync(id);
+            /*Models.Trajet trajet = await _repository.GetAsync(id);
             if (trajet == null)
             {
                 return NotFound();
-            }
+            }*/
             command.Id = Guid.NewGuid();
             //command.UserId = Guid.Parse(User.Identity.Name);
-            command.UserId = Guid.NewGuid();
+            //command.UserId = Guid.NewGuid();
+            command.UserId = Guid.Parse("58877d79-3cdd-4d36-9f30-a6c6953a4860");
             await _busClient.PublishAsync(command);
             return Json(new { command.Id });
         }
