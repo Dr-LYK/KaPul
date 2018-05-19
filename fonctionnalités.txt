@@ -1,6 +1,6 @@
-KaPul, Facilite le covoiturage entre particuliers
+﻿KaPul, Facilite le covoiturage entre particuliers
 
-- Incription / Connexion
+- Incription / Connexion [0K]
 -- Adresse mail
 -- Mot de passe
 -- Nom
@@ -17,16 +17,16 @@ KaPul, Facilite le covoiturage entre particuliers
 -- Marque
 -- Couleur
 
-- Création d'un trajet
--- Ville et date de départ
--- Ville et date d'arrivée  
--- Nombre de places disponible
--- Prix par personne
--- Voiture utilisée
--- Conducteur (utilisateur)
+- Création d'un trajet [0K]
+-- Ville et date de départ [0K]
+-- Ville et date d'arrivée [0K]
+-- Nombre de places disponible [0K]
+-- Prix par personne [0K]
+-- Voiture utilisée [0K]
+-- Conducteur (utilisateur) [0K]
 
-- Suppression d'un trajet
+- Suppression d'un trajet [0K]
 
-- Recherche d'un trajet
+- Recherche d'un trajet [0K]
 
-- Réservation d'un trajet
+- Réservation d'un trajet [0K]
