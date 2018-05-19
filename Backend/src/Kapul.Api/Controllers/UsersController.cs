@@ -1,4 +1,6 @@
-﻿using Kapul.Api.Repositories;
+﻿using Kapul.Api.ModelBinding;
+using Kapul.Api.Repositories;
+using Kapul.Common.Auth;
 using Kapul.Common.Commands;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -29,25 +31,25 @@ namespace Kapul.Api.Controllers
             return Content($"/users/{id}: Not Implemented Yet");
         }
 
-        /*[HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody]AuthenticateUser command)
-        {
-            await _busClient.PublishAsync(command);
-            return Accepted();
-        }*/
-
         [HttpPost("login")]
-        public IActionResult Post([FromBody]AuthenticateUser command)
+        public async Task<IActionResult> Post([FromBody]AuthenticateUser command)
         {
-            return Content("{\"token\":\"Token de la mort\", \"user\": {\"id\":\"58877d79-3cdd-4d36-9f30-a6c6953a4860\",\"surname\":\"Jean\",\"name\":\"Michel\"}}");
+            var token = Guid.NewGuid();
+            LoginUserResponse user = new LoginUserResponse
+            {
+                Id = Guid.NewGuid(),
+                Surname = "Kayak",
+                Name = "Martin"
+            };
+            await _busClient.PublishAsync(command);
+            return Json(new { token, user});
         }
 
         [HttpPost("register")]
-        public /*async Task<IActionResult>*/ IActionResult Post([FromBody]CreateUser command)
+        public async Task<IActionResult> Post([FromBody]CreateUser command)
         {
-            Console.WriteLine("Hello");
-            //await _busClient.PublishAsync(command);
-            return Content("General Kenobi");
+            await _busClient.PublishAsync(command);
+            return Json(new { command.Email });
         }
 
         /*[HttpPost("{id}/comment")]
