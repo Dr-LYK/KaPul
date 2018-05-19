@@ -1,8 +1,7 @@
 ﻿using System;
-
-namespace Kapul.Services.Identity.DBO
+namespace Kapul.Common.Commands
 {
-    public class User
+    public class UpdateUser : ICommand
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

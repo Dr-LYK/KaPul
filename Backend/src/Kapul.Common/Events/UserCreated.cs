@@ -6,7 +6,7 @@ namespace Kapul.Common.Events
 {
     public class UserCreated
     {
-        public long Id { get; }
+        public Guid Id { get; }
         public string Name { get; }
         public string FirstName { get; }
         public string Email { get; }
@@ -15,7 +15,7 @@ namespace Kapul.Common.Events
         {
         }
 
-        public UserCreated(long id, string name, string firstname, string email)
+        public UserCreated(Guid id, string name, string firstname, string email)
         {
             this.Id = id;
             this.Name = name;

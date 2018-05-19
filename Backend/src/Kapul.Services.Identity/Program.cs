@@ -19,6 +19,11 @@ namespace Kapul.Services.Identity
             ServiceHost.Create<Startup>(args)
                 .UseRabbitMq()
                 .SubscribeToCommand<CreateCar>()
+                       .SubscribeToCommand<CreateUser>()
+                       .SubscribeToCommand<DeleteUser>()
+                       .SubscribeToCommand<UpdateUser>()
+                       .SubscribeToCommand<DeleteUser>()
+                       .SubscribeToCommand<AuthenticateUser>()
                 //Add subscription
                 .Build()
                 .Run();

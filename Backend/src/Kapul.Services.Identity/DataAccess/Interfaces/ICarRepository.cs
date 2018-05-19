@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+
 namespace Kapul.Services.Identity.DataAccess.Interfaces
 {
     public interface ICarRepository

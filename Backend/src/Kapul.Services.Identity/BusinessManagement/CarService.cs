@@ -6,7 +6,7 @@ using Kapul.Services.Identity.DBO;
 namespace Kapul.Services.Identity.BusinessManagement
 {
     public class CarService : Interfaces.ICarService
-    {
+    {   
         private readonly DataAccess.Interfaces.ICarRepository _carRepository;
 
         public CarService(DataAccess.Interfaces.ICarRepository carRepository)
@@ -14,9 +14,9 @@ namespace Kapul.Services.Identity.BusinessManagement
             _carRepository = carRepository;
         }
 
-        public async Task<DBO.Car> CreateAsync(CreateCar command)
+        public async Task<Car> CreateAsync(CreateCar command)
         {
-            DBO.Car car = new DBO.Car
+            Car car = new Car
             {
                 Id = command.Id,
                 User_Id = command.UserId,

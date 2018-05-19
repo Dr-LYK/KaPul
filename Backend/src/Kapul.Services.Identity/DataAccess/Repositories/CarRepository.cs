@@ -7,7 +7,7 @@ namespace Kapul.Services.Identity.DataAccess.Repositories
     public class CarRepository : Interfaces.ICarRepository
     {
         private readonly IdentityContext _context;
-
+        private readonly ILogger _logger;
         public CarRepository(IdentityContext context)
         {
             this._context = context;
@@ -18,14 +18,12 @@ namespace Kapul.Services.Identity.DataAccess.Repositories
             try
             {
                 _context.Cars.Add(car);
-                Console.WriteLine("Before");
                 await _context.SaveChangesAsync();
-                Console.WriteLine("After");
                 return car;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error on create Car: {ex}");
+                _logger.LogError(ex, $"Error on create Car: {ex}");
                 return null;
             }
         }
@@ -44,7 +42,7 @@ namespace Kapul.Services.Identity.DataAccess.Repositories
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error on delete Car: {ex}");
+                _logger.LogError(ex, $"Error on delete Car: {ex}");
             }
             return false;
         }
@@ -57,7 +55,7 @@ namespace Kapul.Services.Identity.DataAccess.Repositories
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error on get Car with id: {id}: {ex}");
+                _logger.LogError(ex, $"Error on get Car with id: {id}: {ex}");
                 return null;
             }
         }
