@@ -9,7 +9,6 @@ namespace Kapul.Services.Identity.DataAccess
         public IdentityContext(DbContextOptions<IdentityContext> options)
             : base(options)
         {
-            options.
             this.Database.EnsureCreated();
         }
 
